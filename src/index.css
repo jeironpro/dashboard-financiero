@@ -93,6 +93,7 @@
   --color-ink: var(--color-ink);
   --color-ink-2: var(--color-ink-2);
   --color-ink-3: var(--color-ink-3);
+  --color-faint: var(--color-ink-3);
 
   /* Estados */
   --color-success: var(--color-success);
