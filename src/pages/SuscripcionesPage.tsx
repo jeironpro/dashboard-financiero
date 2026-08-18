@@ -1,16 +1,27 @@
-import { Card, CardContent } from '@/components/ui/card'
+import { PlanCards } from '@/components/subscriptions/PlanCards'
+import { SubscriptionsTable } from '@/components/subscriptions/SubscriptionsTable'
+import { SectionHeading } from '@/components/dashboard/SectionHeading'
+import { useReveal } from '@/hooks/useReveal'
+import { formatMoney, formatNumber } from '@/lib/format'
 import type { FinanzasData } from '@/types/finanzas'
 
 export function SuscripcionesPage({ data }: { data: FinanzasData }) {
+  const rootRef = useReveal<HTMLDivElement>()
+  const { summary } = data
+
   return (
-    <Card>
-      <CardContent className="p-8">
-        <p className="mono-label">03 · SUSCRIPCIONES</p>
-        <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight">Suscripciones</h2>
-        <p className="mt-1 text-muted-foreground">
-          Vista en construcción — {data.subscriptions.length} suscripciones en el MOCK.
-        </p>
-      </CardContent>
-    </Card>
+    <div ref={rootRef}>
+      <SectionHeading
+        eyebrow="03 · SUSCRIPCIONES"
+        title="Ingreso recurrente por plan"
+        lead={`MRR de ${formatMoney(summary.mrr)} con ${formatNumber(summary.activeSubscriptions)} suscripciones activas, ${formatNumber(summary.overdueSubscriptions)} atrasadas y ${formatNumber(summary.trialSubscriptions)} en prueba.`}
+      />
+
+      <PlanCards data={data} />
+
+      <div className="mt-5">
+        <SubscriptionsTable subscriptions={data.subscriptions} />
+      </div>
+    </div>
   )
 }
