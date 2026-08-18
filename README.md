@@ -1,4 +1,4 @@
-# Dashboard Financiero «Tally»
+# Dashboard Financiero «Suma»
 
 Frontend de dashboard financiero para portafolio personal: **ingresos, facturación, suscripciones, estado de pagos y reportes fiscales/contables**.
 
@@ -17,7 +17,7 @@ Frontend de dashboard financiero para portafolio personal: **ingresos, facturaci
 | Framework | React 19 + TypeScript + Vite |
 | Paquete | yarn 4 (`nodeLinker: node-modules`) |
 | UI | shadcn/ui (Radix) sobre Tailwind CSS v4 |
-| Diseño | Skill **Hallmark** · Tema **Hum (variante Tally)** · Macroestructura **Stat-Led** |
+| Diseño | Skill **Hallmark** · Tema **Hum** · Macroestructura **Stat-Led** |
 | Animación | animejs v4 (contadores, reveals, trazos SVG, barras, star-burst) — respeta `prefers-reduced-motion` |
 | Datos | `src/data/mock-data.json` (MOCK realista en MXN, internamente consistente) |
 | Testing | vitest + testing-library |
@@ -46,7 +46,7 @@ yarn format     # Prettier
 ```
 src/
 ├── components/
-│   ├── brand/          # marca TallyMark (character moment)
+│   ├── brand/          # marca BrandMark (character moment)
 │   ├── dashboard/      # KPIs, charts, donut, badges
 │   ├── invoices/       # tabla de facturación
 │   ├── layout/         # sidebar, header, footer, nav
