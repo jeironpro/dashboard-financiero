@@ -46,14 +46,15 @@ describe('loadMockData', () => {
     expect(data.summary.accountsReceivable).toBe(data.balanceSheet.assets.accountsReceivable)
   })
 
-  it('totales YTD del estado de resultados', () => {
-    expect(data.summary.ytdIngresos).toBe(3401975)
-    expect(data.summary.ytdGastos).toBe(2208700)
+  it('totales YTD del estado de resultados (ejercicio fiscal Ene–Ago)', () => {
+    expect(data.summary.ytdIngresos).toBe(2578075)
+    expect(data.summary.ytdGastos).toBe(1579300)
     expect(data.incomeStatement.ingresos).toBe(data.summary.ytdIngresos)
     expect(data.incomeStatement.gastos).toBe(data.summary.ytdGastos)
-    expect(data.incomeStatement.utilidadBruta).toBe(1193275)
-    expect(data.incomeStatement.isr).toBe(357983)
-    expect(data.incomeStatement.utilidadNeta).toBe(835292)
+    expect(data.incomeStatement.utilidadBruta).toBe(998775)
+    expect(data.incomeStatement.isr).toBe(299633)
+    expect(data.incomeStatement.utilidadNeta).toBe(699142)
+    expect(data.incomeStatement.period).toBe('2026-01–2026-08')
   })
 
   it('el balance general cuadra: activos = pasivos + capital', () => {

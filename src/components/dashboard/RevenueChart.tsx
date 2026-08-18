@@ -36,7 +36,8 @@ export function RevenueChart({ data, className }: RevenueChartProps) {
             Ingresos vs. gastos
           </p>
           <p className="mt-0.5 text-xs text-muted-foreground">
-            Facturado YTD {formatMoney(ytdIngresos)} · Gastos YTD {formatMoney(ytdGastos)}
+            Facturado (12 meses) {formatMoney(ytdIngresos)} · Gastos (12 meses){' '}
+            {formatMoney(ytdGastos)}
           </p>
         </div>
         <div className="flex items-center gap-4 text-xs text-muted-foreground" aria-hidden="true">
