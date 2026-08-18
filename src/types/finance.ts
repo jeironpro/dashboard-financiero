@@ -70,24 +70,24 @@ export interface Payment {
 
 export interface MonthlyPoint {
   month: string
-  ingresos: number
-  gastos: number
+  income: number
+  expenses: number
 }
 
-export interface IvaMonth {
+export interface VatMonth {
   month: string
-  ivaTrasladado: number
-  ivaAcreditable: number
-  ivaPorPagar: number
+  vatCharged: number
+  vatCreditable: number
+  vatPayable: number
 }
 
 export interface IncomeStatement {
   period: string
-  ingresos: number
-  gastos: number
-  utilidadBruta: number
-  isr: number
-  utilidadNeta: number
+  income: number
+  expenses: number
+  grossProfit: number
+  incomeTax: number
+  netIncome: number
 }
 
 export interface BalanceSheet {
@@ -120,7 +120,6 @@ export interface PaymentSummary {
   failed: StatusAggregate
 }
 
-
 export interface Summary {
   /** Ingreso mensual recurrente: suma de suscripciones activas + atrasadas. */
   mrr: number
@@ -139,12 +138,12 @@ export interface Summary {
   /** Cuentas por cobrar: facturas pendientes sin importar el mes. */
   accountsReceivable: number
   totalInvoices: number
-  ytdIngresos: number
-  ytdGastos: number
-  ytdUtilidad: number
+  ytdIncome: number
+  ytdExpenses: number
+  ytdProfit: number
 }
 
-export interface FinanzasData {
+export interface FinanceData {
   generatedAt: string
   updatedAt: number
   company: Company
@@ -156,7 +155,7 @@ export interface FinanzasData {
   invoices: Invoice[]
   payments: Payment[]
   paymentSummary: PaymentSummary
-  ivaMonthly: IvaMonth[]
+  vatMonthly: VatMonth[]
   incomeStatement: IncomeStatement
   balanceSheet: BalanceSheet
 }

@@ -1,19 +1,19 @@
 import { Printer } from 'lucide-react'
 import { BalanceSheetCard } from '@/components/reports/BalanceSheetCard'
 import { IncomeStatementCard } from '@/components/reports/IncomeStatementCard'
-import { IvaTable } from '@/components/reports/IvaTable'
+import { VatTable } from '@/components/reports/VatTable'
 import { SectionHeading } from '@/components/dashboard/SectionHeading'
 import { Button } from '@/components/ui/button'
 import { useReveal } from '@/hooks/useReveal'
 import { formatMonthKey, formatMonthRange } from '@/lib/format'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
-export function ReportesPage({ data }: { data: FinanzasData }) {
+export function ReportsPage({ data }: { data: FinanceData }) {
   const rootRef = useReveal<HTMLDivElement>()
-  const { company, ivaMonthly, incomeStatement, balanceSheet, monthlyRevenue } = data
+  const { company, vatMonthly, incomeStatement, balanceSheet, monthlyRevenue } = data
 
   const fiscalYear = String(company.fiscalYear)
-  const ivaMonths = ivaMonthly.filter((m) => m.month.startsWith(fiscalYear))
+  const vatMonths = vatMonthly.filter((m) => m.month.startsWith(fiscalYear))
   const lastMonth = monthlyRevenue[monthlyRevenue.length - 1].month
   const firstFiscal = `${fiscalYear}-01`
   const range =
@@ -38,7 +38,7 @@ export function ReportesPage({ data }: { data: FinanzasData }) {
         </Button>
       </div>
 
-      <IvaTable months={ivaMonths} />
+      <VatTable months={vatMonths} />
 
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
         <IncomeStatementCard statement={incomeStatement} />

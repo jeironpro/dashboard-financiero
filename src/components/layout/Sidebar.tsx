@@ -2,11 +2,11 @@ import { BrandMark } from '@/components/brand/BrandMark'
 import { Avatar } from '@/components/profile/Avatar'
 import { NAV_SECTIONS, type View } from './nav'
 import { cn } from '@/lib/utils'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
 interface SidebarContentProps {
   active: View
-  data: FinanzasData
+  data: FinanceData
   onNavigate: (view: View) => void
   onNavigateMobile?: () => void
   onProfile: () => void
@@ -25,10 +25,10 @@ export function SidebarContent({
   return (
     <div className="flex h-full flex-col">
       <a
-        href="#inicio"
+        href="#overview"
         onClick={(event) => {
           event.preventDefault()
-          onNavigate('resumen')
+          onNavigate('overview')
           onNavigateMobile?.()
         }}
         aria-label={`${company.name} — ir al resumen`}

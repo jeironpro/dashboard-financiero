@@ -2,13 +2,13 @@ import { Check } from 'lucide-react'
 import { PLAN_META } from '@/lib/status'
 import { formatMoney } from '@/lib/format'
 import { cn } from '@/lib/utils'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData, PlanId } from '@/types/finance'
 
 interface PlanCardsProps {
-  data: FinanzasData
+  data: FinanceData
 }
 
-const CARD_ACCENT: Record<string, string> = {
+const CARD_ACCENT: Record<PlanId, string> = {
   starter: 'hover:bg-cyan-soft/70',
   growth: 'hover:bg-pear-soft/70',
   scale: 'hover:bg-lavender-soft/70',

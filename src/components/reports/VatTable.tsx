@@ -8,20 +8,20 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { formatMonthKey, formatMoneyFull } from '@/lib/format'
-import type { IvaMonth } from '@/types/finanzas'
+import type { VatMonth } from '@/types/finance'
 
-interface IvaTableProps {
-  months: IvaMonth[]
+interface VatTableProps {
+  months: VatMonth[]
 }
 
-export function IvaTable({ months }: IvaTableProps) {
+export function VatTable({ months }: VatTableProps) {
   const totals = months.reduce(
     (acc, m) => ({
-      trasladado: acc.trasladado + m.ivaTrasladado,
-      acreditable: acc.acreditable + m.ivaAcreditable,
-      porPagar: acc.porPagar + m.ivaPorPagar,
+      charged: acc.charged + m.vatCharged,
+      creditable: acc.creditable + m.vatCreditable,
+      payable: acc.payable + m.vatPayable,
     }),
-    { trasladado: 0, acreditable: 0, porPagar: 0 },
+    { charged: 0, creditable: 0, payable: 0 },
   )
 
   return (
@@ -55,13 +55,13 @@ export function IvaTable({ months }: IvaTableProps) {
             <TableRow key={m.month}>
               <TableCell className="font-medium text-ink">{formatMonthKey(m.month)}</TableCell>
               <TableCell className="num text-right text-muted-foreground">
-                {formatMoneyFull(m.ivaTrasladado)}
+                {formatMoneyFull(m.vatCharged)}
               </TableCell>
               <TableCell className="num text-right text-muted-foreground">
-                {formatMoneyFull(m.ivaAcreditable)}
+                {formatMoneyFull(m.vatCreditable)}
               </TableCell>
               <TableCell className="num text-right font-semibold text-warning">
-                {formatMoneyFull(m.ivaPorPagar)}
+                {formatMoneyFull(m.vatPayable)}
               </TableCell>
             </TableRow>
           ))}
@@ -70,13 +70,13 @@ export function IvaTable({ months }: IvaTableProps) {
           <TableRow className="border-t-2 border-rule-strong">
             <TableCell className="font-semibold text-ink">Total ejercicio</TableCell>
             <TableCell className="num text-right font-semibold text-ink">
-              {formatMoneyFull(totals.trasladado)}
+              {formatMoneyFull(totals.charged)}
             </TableCell>
             <TableCell className="num text-right font-semibold text-ink">
-              {formatMoneyFull(totals.acreditable)}
+              {formatMoneyFull(totals.creditable)}
             </TableCell>
             <TableCell className="num text-right font-bold text-warning">
-              {formatMoneyFull(totals.porPagar)}
+              {formatMoneyFull(totals.payable)}
             </TableCell>
           </TableRow>
         </tfoot>

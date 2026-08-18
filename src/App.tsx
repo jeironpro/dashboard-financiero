@@ -3,11 +3,11 @@ import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { Sidebar, SidebarContent } from '@/components/layout/Sidebar'
 import type { View } from '@/components/layout/nav'
-import { FacturacionPage } from '@/pages/FacturacionPage'
-import { PagosPage } from '@/pages/PagosPage'
-import { ReportesPage } from '@/pages/ReportesPage'
-import { ResumenPage } from '@/pages/ResumenPage'
-import { SuscripcionesPage } from '@/pages/SuscripcionesPage'
+import { InvoicesPage } from '@/pages/InvoicesPage'
+import { PaymentsPage } from '@/pages/PaymentsPage'
+import { ReportsPage } from '@/pages/ReportsPage'
+import { OverviewPage } from '@/pages/OverviewPage'
+import { SubscriptionsPage } from '@/pages/SubscriptionsPage'
 import { ProfilePage } from '@/pages/ProfilePage'
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from '@/components/ui/sheet'
 import { TooltipProvider } from '@/components/ui/tooltip'
@@ -15,7 +15,7 @@ import { useDashboardData } from '@/hooks/useDashboardData'
 
 export default function App() {
   const { data, refresh } = useDashboardData()
-  const [view, setView] = useState<View>('resumen')
+  const [view, setView] = useState<View>('overview')
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navigate = (next: View) => {
@@ -53,11 +53,11 @@ export default function App() {
 
           <main className="print-main px-4 pb-4 pt-6 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-[var(--page-max)]">
-              {view === 'resumen' && <ResumenPage data={data} />}
-              {view === 'facturacion' && <FacturacionPage data={data} />}
-              {view === 'suscripciones' && <SuscripcionesPage data={data} />}
-              {view === 'pagos' && <PagosPage data={data} />}
-              {view === 'reportes' && <ReportesPage data={data} />}
+              {view === 'overview' && <OverviewPage data={data} />}
+              {view === 'invoices' && <InvoicesPage data={data} />}
+              {view === 'subscriptions' && <SubscriptionsPage data={data} />}
+              {view === 'payments' && <PaymentsPage data={data} />}
+              {view === 'reports' && <ReportsPage data={data} />}
               {view === 'profile' && <ProfilePage data={data} />}
             </div>
           </main>

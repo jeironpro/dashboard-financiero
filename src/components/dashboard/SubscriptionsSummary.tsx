@@ -1,10 +1,10 @@
 import { PLAN_META } from '@/lib/status'
 import { formatMoney } from '@/lib/format'
 import { cn } from '@/lib/utils'
-import type { FinanzasData, PlanId } from '@/types/finanzas'
+import type { FinanceData, PlanId } from '@/types/finance'
 
 interface SubscriptionsSummaryProps {
-  data: FinanzasData
+  data: FinanceData
 }
 
 /** MRR por plan con barra de participación (multi-acento: un tinte por plan). */

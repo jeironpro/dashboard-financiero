@@ -1,5 +1,6 @@
 import { ArrowDownRight, ArrowUpRight, type LucideIcon } from 'lucide-react'
 import { useAnimatedNumber } from '@/hooks/useAnimatedNumber'
+import { formatSignedPercent } from '@/lib/format'
 import { cn } from '@/lib/utils'
 
 export type Accent = 'pear' | 'cyan' | 'coral' | 'mint' | 'lavender'
@@ -63,19 +64,11 @@ export function KpiCard({ label, value, format, icon: Icon, accent, sublabel, de
             ) : (
               <ArrowDownRight className="size-3.5" aria-hidden="true" />
             )}
-            {formatPercentAbs(delta)}
+            {formatSignedPercent(delta)}
           </span>
         )}
         {sublabel && <span className="truncate text-xs text-faint">{sublabel}</span>}
       </div>
     </div>
   )
-}
-
-function formatPercentAbs(fraction: number): string {
-  return new Intl.NumberFormat('es-MX', {
-    style: 'percent',
-    signDisplay: 'always',
-    maximumFractionDigits: 1,
-  }).format(fraction)
 }

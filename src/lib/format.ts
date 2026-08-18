@@ -33,6 +33,15 @@ export function formatPercent(value: number, fractionDigits = 1): string {
   }).format(value)
 }
 
+/** Porcentaje con signo explícito («+7.5%», «-2.1%»): variaciones en KPIs. */
+export function formatSignedPercent(value: number, fractionDigits = 1): string {
+  return new Intl.NumberFormat('es-MX', {
+    style: 'percent',
+    signDisplay: 'always',
+    maximumFractionDigits: fractionDigits,
+  }).format(value)
+}
+
 /** Fecha corta: «18 ago 2026». */
 export function formatDate(iso: string): string {
   return new Intl.DateTimeFormat('es-MX', { day: '2-digit', month: 'short', year: 'numeric' }).format(

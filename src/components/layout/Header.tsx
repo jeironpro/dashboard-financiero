@@ -6,11 +6,11 @@ import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { formatMonthKey } from '@/lib/format'
 import { cn } from '@/lib/utils'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
 interface HeaderProps {
   view: View
-  data: FinanzasData
+  data: FinanceData
   onMenuClick: () => void
   onRefresh: () => void
   onProfile: () => void

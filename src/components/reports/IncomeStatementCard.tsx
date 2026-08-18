@@ -1,6 +1,6 @@
 import { formatMoneyFull, formatMonthRange } from '@/lib/format'
 import { cn } from '@/lib/utils'
-import type { IncomeStatement } from '@/types/finanzas'
+import type { IncomeStatement } from '@/types/finance'
 
 interface IncomeStatementCardProps {
   statement: IncomeStatement
@@ -46,18 +46,18 @@ export function IncomeStatementCard({ statement }: IncomeStatementCardProps) {
       </p>
 
       <div className="mt-3">
-        <Row label="Ingresos por servicios" value={formatMoneyFull(statement.ingresos)} />
-        <Row label="Gastos de operación" value={`(${formatMoneyFull(statement.gastos)})`} />
+        <Row label="Ingresos por servicios" value={formatMoneyFull(statement.income)} />
+        <Row label="Gastos de operación" value={`(${formatMoneyFull(statement.expenses)})`} />
         <Row
           label="Utilidad bruta"
-          value={formatMoneyFull(statement.utilidadBruta)}
+          value={formatMoneyFull(statement.grossProfit)}
           strong
           tone="text-success"
         />
-        <Row label="ISR (30 %)" value={`(${formatMoneyFull(statement.isr)})`} />
+        <Row label="ISR (30 %)" value={`(${formatMoneyFull(statement.incomeTax)})`} />
         <Row
           label="Utilidad neta"
-          value={formatMoneyFull(statement.utilidadNeta)}
+          value={formatMoneyFull(statement.netIncome)}
           strong
           tone="text-success"
         />

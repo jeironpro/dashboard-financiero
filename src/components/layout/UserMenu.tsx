@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import type { UserProfile } from '@/types/finanzas'
+import type { UserProfile } from '@/types/finance'
 
 interface UserMenuProps {
   user: UserProfile

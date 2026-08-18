@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { growBars } from '@/lib/anime'
 import { formatMoney, formatMonthKey, formatNumber } from '@/lib/format'
 import { cn } from '@/lib/utils'
-import type { MonthlyPoint } from '@/types/finanzas'
+import type { MonthlyPoint } from '@/types/finance'
 
 interface RevenueChartProps {
   data: MonthlyPoint[]
@@ -17,9 +17,9 @@ export function RevenueChart({ data, className }: RevenueChartProps) {
     if (ref.current) growBars(ref.current)
   }, [])
 
-  const max = Math.max(...data.map((p) => Math.max(p.ingresos, p.gastos)))
-  const ytdIngresos = data.reduce((acc, p) => acc + p.ingresos, 0)
-  const ytdGastos = data.reduce((acc, p) => acc + p.gastos, 0)
+  const max = Math.max(...data.map((p) => Math.max(p.income, p.expenses)))
+  const ytdIncome = data.reduce((acc, p) => acc + p.income, 0)
+  const ytdExpenses = data.reduce((acc, p) => acc + p.expenses, 0)
 
   return (
     <div
@@ -36,8 +36,8 @@ export function RevenueChart({ data, className }: RevenueChartProps) {
             Ingresos vs. gastos
           </p>
           <p className="mt-0.5 text-xs text-muted-foreground">
-            Facturado (12 meses) {formatMoney(ytdIngresos)} · Gastos (12 meses){' '}
-            {formatMoney(ytdGastos)}
+            Facturado (12 meses) {formatMoney(ytdIncome)} · Gastos (12 meses){' '}
+            {formatMoney(ytdExpenses)}
           </p>
         </div>
         <div className="flex items-center gap-4 text-xs text-muted-foreground" aria-hidden="true">
@@ -56,23 +56,23 @@ export function RevenueChart({ data, className }: RevenueChartProps) {
         aria-label="Gráfica de barras de facturado y gastos por mes, últimos 12 meses"
       >
         {data.map((point, index) => {
-          const hIngresos = Math.max(2, (point.ingresos / max) * 100)
-          const hGastos = Math.max(2, (point.gastos / max) * 100)
+          const hIncome = Math.max(2, (point.income / max) * 100)
+          const hExpenses = Math.max(2, (point.expenses / max) * 100)
           const isCurrent = index === data.length - 1
           return (
             <div key={point.month} className="flex min-w-0 flex-1 flex-col items-center gap-1">
               <div className="flex w-full flex-1 items-end justify-center gap-0.5 sm:gap-1">
                 <div
                   data-bar
-                  title={`${formatMonthKey(point.month)} · Facturado ${formatMoney(point.ingresos)}`}
+                  title={`${formatMonthKey(point.month)} · Facturado ${formatMoney(point.income)}`}
                   className={cn('w-1.5 rounded-full bg-pear sm:w-2.5', isCurrent && 'ring-1 ring-pear-deep')}
-                  style={{ height: `${hIngresos}%` }}
+                  style={{ height: `${hIncome}%` }}
                 />
                 <div
                   data-bar
-                  title={`${formatMonthKey(point.month)} · Gastos ${formatMoney(point.gastos)}`}
+                  title={`${formatMonthKey(point.month)} · Gastos ${formatMoney(point.expenses)}`}
                   className="w-1.5 rounded-full bg-cyan/80 sm:w-2.5"
-                  style={{ height: `${hGastos}%` }}
+                  style={{ height: `${hExpenses}%` }}
                 />
               </div>
               <span
@@ -103,8 +103,8 @@ export function RevenueChart({ data, className }: RevenueChartProps) {
           {data.map((point) => (
             <tr key={point.month}>
               <th scope="row">{formatMonthKey(point.month)}</th>
-              <td>{formatNumber(point.ingresos)}</td>
-              <td>{formatNumber(point.gastos)}</td>
+              <td>{formatNumber(point.income)}</td>
+              <td>{formatNumber(point.expenses)}</td>
             </tr>
           ))}
         </tbody>
