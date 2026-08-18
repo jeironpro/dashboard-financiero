@@ -121,6 +121,29 @@ export function pulseIndicators(root: HTMLElement): void {
   })
 }
 
+/** Donut de estado: dibuja los segmentos `[data-segment]` desde su offset acumulado. */
+export function drawDonut(
+  root: HTMLElement,
+  opts: { duration?: number } = {},
+): void {
+  const segments = Array.from(root.querySelectorAll<SVGCircleElement>('[data-segment]'))
+  if (segments.length === 0) return
+  for (const circle of segments) {
+    const offset = Number(circle.dataset.offset ?? 0)
+    const length = Number(circle.dataset.length ?? 0)
+    circle.style.strokeDashoffset = `${offset + length}`
+    if (prefersReducedMotion()) {
+      circle.style.strokeDashoffset = `${offset}`
+      continue
+    }
+    animate(circle, {
+      strokeDashoffset: [offset + length, offset],
+      duration: opts.duration ?? 800,
+      ease: 'outExpo',
+    })
+  }
+}
+
 /** Star-burst coral en el punto (x, y): microcelebración de una acción completada. */
 export function burstAt(parent: HTMLElement, x: number, y: number): void {
   if (prefersReducedMotion()) return
