@@ -1,6 +1,6 @@
 import { CreditCard, FileText, LayoutDashboard, ReceiptText, Repeat, type LucideIcon } from 'lucide-react'
 
-export type View = 'resumen' | 'facturacion' | 'suscripciones' | 'pagos' | 'reportes'
+export type View = 'resumen' | 'facturacion' | 'suscripciones' | 'pagos' | 'reportes' | 'profile'
 
 export interface NavSection {
   id: View
@@ -48,4 +48,5 @@ export const VIEW_TITLES: Record<View, string> = {
   suscripciones: 'Suscripciones',
   pagos: 'Estado de pagos',
   reportes: 'Reportes fiscales y contables',
+  profile: 'Mi perfil',
 }

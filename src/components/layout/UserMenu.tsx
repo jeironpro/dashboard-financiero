@@ -12,9 +12,10 @@ import type { UserProfile } from '@/types/finanzas'
 
 interface UserMenuProps {
   user: UserProfile
+  onProfile: () => void
 }
 
-export function UserMenu({ user }: UserMenuProps) {
+export function UserMenu({ user, onProfile }: UserMenuProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-paper">
@@ -27,7 +28,7 @@ export function UserMenu({ user }: UserMenuProps) {
           <span className="text-xs font-normal text-muted-foreground">{user.email}</span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onSelect={onProfile}>
           <UserRound aria-hidden="true" />
           Mi perfil
         </DropdownMenuItem>
