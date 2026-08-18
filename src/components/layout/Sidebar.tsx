@@ -1,4 +1,4 @@
-import { TallyMark } from '@/components/brand/TallyMark'
+import { BrandMark } from '@/components/brand/BrandMark'
 import { Avatar } from '@/components/profile/Avatar'
 import { NAV_SECTIONS, type View } from './nav'
 import { cn } from '@/lib/utils'
@@ -27,10 +27,10 @@ export function SidebarContent({ active, data, onNavigate, onNavigateMobile }: S
         aria-label={`${company.name} — ir al resumen`}
         className="flex items-center gap-2.5 px-4 pb-5 pt-5"
       >
-        <TallyMark className="size-8 shrink-0" />
+        <BrandMark className="size-8 shrink-0" />
         <span className="leading-tight">
           <span className="block font-display text-base font-semibold tracking-tight text-ink">
-            Tally
+            Suma
           </span>
           <span className="block text-xs text-muted-foreground">finanzas al día</span>
         </span>

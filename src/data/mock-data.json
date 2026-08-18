@@ -1,18 +1,18 @@
 {
   "generatedAt": "2026-08-18T09:00:00Z",
   "company": {
-    "name": "Tally Labs, S.A. de C.V.",
-    "taxId": "TAL1908123K4",
+    "name": "Suma Labs, S.A. de C.V.",
+    "taxId": "SUM1908123K4",
     "address": "Av. Insurgentes Sur 1602, Col. Crédito Constructor",
     "city": "Ciudad de México, MX",
     "currency": "MXN",
     "fiscalYear": 2026,
-    "website": "tally.mx"
+    "website": "suma.mx"
   },
   "currentUser": {
     "id": "usr-fin-director",
     "name": "Mariana Quiroga",
-    "email": "mariana.quiroga@tally.mx",
+    "email": "mariana.quiroga@suma.mx",
     "role": "Directora de Finanzas",
     "department": "Finanzas y contabilidad",
     "location": "CDMX, MX",
