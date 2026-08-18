@@ -12,31 +12,31 @@ import {
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { INVOICE_STATUS, PAYMENT_METHOD_LABEL } from '@/lib/status'
 import { formatDate, formatMoney } from '@/lib/format'
-import type { Invoice, InvoiceStatus } from '@/types/finanzas'
+import type { Invoice, InvoiceStatus } from '@/types/finance'
 
 interface InvoicesTableProps {
   invoices: Invoice[]
 }
 
-type Filter = 'todas' | InvoiceStatus
+type Filter = 'all' | InvoiceStatus
 
 const FILTERS: Array<{ id: Filter; label: string }> = [
-  { id: 'todas', label: 'Todas' },
+  { id: 'all', label: 'Todas' },
   { id: 'pending', label: 'Pendientes' },
   { id: 'paid', label: 'Exitosas' },
   { id: 'failed', label: 'Fallidas' },
 ]
 
 export function InvoicesTable({ invoices }: InvoicesTableProps) {
-  const [filter, setFilter] = useState<Filter>('todas')
+  const [filter, setFilter] = useState<Filter>('all')
 
   const rows = useMemo(() => {
     const sorted = [...invoices].sort((a, b) => Date.parse(b.issuedAt) - Date.parse(a.issuedAt))
-    return filter === 'todas' ? sorted : sorted.filter((inv) => inv.status === filter)
+    return filter === 'all' ? sorted : sorted.filter((inv) => inv.status === filter)
   }, [invoices, filter])
 
   const countFor = (id: Filter) =>
-    id === 'todas' ? invoices.length : invoices.filter((inv) => inv.status === id).length
+    id === 'all' ? invoices.length : invoices.filter((inv) => inv.status === id).length
 
   return (
     <div

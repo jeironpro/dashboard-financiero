@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { drawDonut } from '@/lib/anime'
 import { formatMoney, formatNumber } from '@/lib/format'
 import { cn } from '@/lib/utils'
-import type { PaymentSummary } from '@/types/finanzas'
+import type { PaymentSummary } from '@/types/finance'
 
 interface PaymentDonutProps {
   summary: PaymentSummary
@@ -72,8 +72,7 @@ export function PaymentDonut({ summary, className }: PaymentDonutProps) {
         Estado de pagos · mes en curso
       </p>
       <p className="mt-0.5 text-xs text-muted-foreground">
-        {formatNumber(total > 0 ? withOffsets[0].count + withOffsets[1].count + withOffsets[2].count : 0)}{' '}
-        movimientos · {formatMoney(total)}
+        {formatNumber(totalCount)} movimientos · {formatMoney(total)}
       </p>
 
       <div className="mt-3 flex items-center gap-5">

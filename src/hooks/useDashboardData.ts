@@ -1,10 +1,10 @@
 import { useCallback, useState } from 'react'
 import { loadMockData } from '@/data'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
 /** Carga el MOCK (fechas re-ancladas al mes actual) y permite refrescarlo. */
-export function useDashboardData(): { data: FinanzasData; refresh: () => void } {
-  const [data, setData] = useState<FinanzasData>(() => loadMockData())
+export function useDashboardData(): { data: FinanceData; refresh: () => void } {
+  const [data, setData] = useState<FinanceData>(() => loadMockData())
 
   const refresh = useCallback(() => {
     setData(loadMockData())

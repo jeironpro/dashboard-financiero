@@ -9,9 +9,9 @@ import { SubscriptionsSummary } from '@/components/dashboard/SubscriptionsSummar
 import { useReveal } from '@/hooks/useReveal'
 import { pulseIndicators } from '@/lib/anime'
 import { formatMoney, formatMonthKey, formatNumber, formatPercent } from '@/lib/format'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
-export function ResumenPage({ data }: { data: FinanzasData }) {
+export function OverviewPage({ data }: { data: FinanceData }) {
   const { summary, monthlyRevenue, invoices } = data
   const rootRef = useReveal<HTMLDivElement>()
   const last = monthlyRevenue[monthlyRevenue.length - 1]
@@ -21,7 +21,7 @@ export function ResumenPage({ data }: { data: FinanzasData }) {
     if (rootRef.current) pulseIndicators(rootRef.current)
   }, [rootRef])
 
-  const ingresosDelta = prev.ingresos > 0 ? (last.ingresos - prev.ingresos) / prev.ingresos : 0
+  const incomeDelta = prev.income > 0 ? (last.income - prev.income) / prev.income : 0
   const prevCount = invoices.filter((inv) => inv.issuedAt.slice(0, 7) === prev.month).length
   const countDelta = prevCount > 0 ? (summary.monthInvoicedCount - prevCount) / prevCount : 0
 
@@ -49,7 +49,7 @@ export function ResumenPage({ data }: { data: FinanzasData }) {
           icon={Banknote}
           accent="mint"
           sublabel={`${summary.monthInvoicedCount} facturas emitidas`}
-          delta={ingresosDelta}
+          delta={incomeDelta}
         />
         <KpiCard
           label="Facturas del mes"

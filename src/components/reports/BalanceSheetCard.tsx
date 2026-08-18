@@ -1,7 +1,7 @@
 import { balanceTotals } from '@/data'
 import { formatDate, formatMoneyFull } from '@/lib/format'
 import { cn } from '@/lib/utils'
-import type { BalanceSheet } from '@/types/finanzas'
+import type { BalanceSheet } from '@/types/finance'
 
 interface BalanceSheetCardProps {
   balance: BalanceSheet

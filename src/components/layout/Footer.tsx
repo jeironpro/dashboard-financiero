@@ -1,8 +1,8 @@
 import { formatMonthKey } from '@/lib/format'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
 interface FooterProps {
-  data: FinanzasData
+  data: FinanceData
 }
 
 export function Footer({ data }: FooterProps) {

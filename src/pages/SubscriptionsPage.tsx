@@ -3,9 +3,9 @@ import { SubscriptionsTable } from '@/components/subscriptions/SubscriptionsTabl
 import { SectionHeading } from '@/components/dashboard/SectionHeading'
 import { useReveal } from '@/hooks/useReveal'
 import { formatMoney, formatNumber } from '@/lib/format'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
-export function SuscripcionesPage({ data }: { data: FinanzasData }) {
+export function SubscriptionsPage({ data }: { data: FinanceData }) {
   const rootRef = useReveal<HTMLDivElement>()
   const { summary } = data
 

@@ -1,6 +1,6 @@
 import { CreditCard, FileText, LayoutDashboard, ReceiptText, Repeat, type LucideIcon } from 'lucide-react'
 
-export type View = 'resumen' | 'facturacion' | 'suscripciones' | 'pagos' | 'reportes' | 'profile'
+export type View = 'overview' | 'invoices' | 'subscriptions' | 'payments' | 'reports' | 'profile'
 
 export interface NavSection {
   id: View
@@ -11,31 +11,31 @@ export interface NavSection {
 
 export const NAV_SECTIONS: NavSection[] = [
   {
-    id: 'resumen',
+    id: 'overview',
     label: 'Resumen',
     description: 'KPIs y estado financiero',
     icon: LayoutDashboard,
   },
   {
-    id: 'facturacion',
+    id: 'invoices',
     label: 'Facturación',
     description: 'Facturas emitidas y cobros',
     icon: FileText,
   },
   {
-    id: 'suscripciones',
+    id: 'subscriptions',
     label: 'Suscripciones',
     description: 'Planes y MRR',
     icon: Repeat,
   },
   {
-    id: 'pagos',
+    id: 'payments',
     label: 'Pagos',
     description: 'Estado de pagos y métodos',
     icon: CreditCard,
   },
   {
-    id: 'reportes',
+    id: 'reports',
     label: 'Reportes',
     description: 'Fiscales y contables',
     icon: ReceiptText,
@@ -43,10 +43,10 @@ export const NAV_SECTIONS: NavSection[] = [
 ]
 
 export const VIEW_TITLES: Record<View, string> = {
-  resumen: 'Resumen financiero',
-  facturacion: 'Facturación',
-  suscripciones: 'Suscripciones',
-  pagos: 'Estado de pagos',
-  reportes: 'Reportes fiscales y contables',
+  overview: 'Resumen financiero',
+  invoices: 'Facturación',
+  subscriptions: 'Suscripciones',
+  payments: 'Estado de pagos',
+  reports: 'Reportes fiscales y contables',
   profile: 'Mi perfil',
 }

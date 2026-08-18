@@ -6,10 +6,9 @@ import mockData from './mock-data.json'
 import type {
   BalanceSheet,
   Company,
-  FinanzasData,
+  FinanceData,
   IncomeStatement,
   Invoice,
-  IvaMonth,
   MonthlyPoint,
   Payment,
   PaymentSummary,
@@ -17,12 +16,13 @@ import type {
   Subscription,
   Summary,
   UserProfile,
-} from '@/types/finanzas'
+  VatMonth,
+} from '@/types/finance'
 
 /** IVA trasladado por ventas (México, tasa estándar). */
-export const IVA_RATE = 0.16
+export const VAT_RATE = 0.16
 /** ISR corporativo sobre la utilidad del ejercicio. */
-export const ISR_RATE = 0.3
+export const INCOME_TAX_RATE = 0.3
 
 type RawInvoice = Omit<Invoice, 'issuedAt' | 'dueAt'> & { issuedAt: string; dueAt: string }
 type RawPayment = Omit<Payment, 'paidAt'> & { paidAt: string }
@@ -115,8 +115,8 @@ export function computeSummary(
     paymentSummary.paid.count + paymentSummary.pending.count + paymentSummary.failed.count
   const monthInvoiced =
     paymentSummary.paid.amount + paymentSummary.pending.amount + paymentSummary.failed.amount
-  const ytdIngresos = monthlyRevenue.reduce((acc, p) => acc + p.ingresos, 0)
-  const ytdGastos = monthlyRevenue.reduce((acc, p) => acc + p.gastos, 0)
+  const ytdIncome = monthlyRevenue.reduce((acc, p) => acc + p.income, 0)
+  const ytdExpenses = monthlyRevenue.reduce((acc, p) => acc + p.expenses, 0)
 
   return {
     mrr,
@@ -131,33 +131,33 @@ export function computeSummary(
     collectionRate,
     accountsReceivable,
     totalInvoices: invoices.length,
-    ytdIngresos,
-    ytdGastos,
-    ytdUtilidad: ytdIngresos - ytdGastos,
+    ytdIncome,
+    ytdExpenses,
+    ytdProfit: ytdIncome - ytdExpenses,
   }
 }
 
 /** Estado de resultados YTD, derivado del chart mensual de ingresos/gastos. */
 export function computeIncomeStatement(monthlyRevenue: MonthlyPoint[]): IncomeStatement {
-  const ingresos = monthlyRevenue.reduce((acc, p) => acc + p.ingresos, 0)
-  const gastos = monthlyRevenue.reduce((acc, p) => acc + p.gastos, 0)
-  const utilidadBruta = ingresos - gastos
-  const isr = Math.round(utilidadBruta * ISR_RATE)
+  const income = monthlyRevenue.reduce((acc, p) => acc + p.income, 0)
+  const expenses = monthlyRevenue.reduce((acc, p) => acc + p.expenses, 0)
+  const grossProfit = income - expenses
+  const incomeTax = Math.round(grossProfit * INCOME_TAX_RATE)
   return {
     period: `${monthlyRevenue[0].month}–${monthlyRevenue[monthlyRevenue.length - 1].month}`,
-    ingresos,
-    gastos,
-    utilidadBruta,
-    isr,
-    utilidadNeta: utilidadBruta - isr,
+    income,
+    expenses,
+    grossProfit,
+    incomeTax,
+    netIncome: grossProfit - incomeTax,
   }
 }
 
 /** Declaración mensual de IVA (16 % sobre facturado y gastado). */
-export function computeIvaMonth(point: MonthlyPoint): IvaMonth {
-  const ivaTrasladado = Math.round(point.ingresos * IVA_RATE)
-  const ivaAcreditable = Math.round(point.gastos * IVA_RATE)
-  return { month: point.month, ivaTrasladado, ivaAcreditable, ivaPorPagar: ivaTrasladado - ivaAcreditable }
+export function computeVatMonth(point: MonthlyPoint): VatMonth {
+  const vatCharged = Math.round(point.income * VAT_RATE)
+  const vatCreditable = Math.round(point.expenses * VAT_RATE)
+  return { month: point.month, vatCharged, vatCreditable, vatPayable: vatCharged - vatCreditable }
 }
 
 /** Totales del balance general; la ecuación contable la verifica el test. */
@@ -173,7 +173,7 @@ export function balanceTotals(balance: BalanceSheet): {
   return { assets, liabilities, equity }
 }
 
-export function loadMockData(now: number = Date.now()): FinanzasData {
+export function loadMockData(now: number = Date.now()): FinanceData {
   const months = monthDiff(raw.generatedAt, now)
 
   const monthlyRevenue: MonthlyPoint[] = raw.monthlyRevenue.map((p) => ({
@@ -202,7 +202,7 @@ export function loadMockData(now: number = Date.now()): FinanzasData {
   // (una sola fuente de verdad: las facturas del JSON).
   monthlyRevenue[monthlyRevenue.length - 1] = {
     ...monthlyRevenue[monthlyRevenue.length - 1],
-    ingresos: paymentSummary.paid.amount + paymentSummary.pending.amount + paymentSummary.failed.amount,
+    income: paymentSummary.paid.amount + paymentSummary.pending.amount + paymentSummary.failed.amount,
   }
 
   // Reportes y YTD usan solo los meses del ejercicio fiscal; el chart conserva
@@ -212,10 +212,10 @@ export function loadMockData(now: number = Date.now()): FinanzasData {
 
   const summary = computeSummary(subscriptions, invoices, paymentSummary, fiscalMonths)
   const incomeStatement = computeIncomeStatement(fiscalMonths)
-  const ivaMonthly = monthlyRevenue.map(computeIvaMonth)
+  const vatMonthly = monthlyRevenue.map(computeVatMonth)
   const balanceSheet: BalanceSheet = {
     ...raw.balanceSheet,
-    equity: { ...raw.balanceSheet.equity, netIncome: incomeStatement.utilidadNeta },
+    equity: { ...raw.balanceSheet.equity, netIncome: incomeStatement.netIncome },
   }
 
   return {
@@ -230,7 +230,7 @@ export function loadMockData(now: number = Date.now()): FinanzasData {
     invoices,
     payments,
     paymentSummary,
-    ivaMonthly,
+    vatMonthly,
     incomeStatement,
     balanceSheet,
   }

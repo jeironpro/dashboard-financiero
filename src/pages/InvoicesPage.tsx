@@ -1,10 +1,11 @@
 import { InvoicesTable } from '@/components/invoices/InvoicesTable'
 import { SectionHeading } from '@/components/dashboard/SectionHeading'
+import { StatCard } from '@/components/dashboard/StatCard'
 import { useReveal } from '@/hooks/useReveal'
 import { formatMoney, formatMonthKey, formatNumber } from '@/lib/format'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
-export function FacturacionPage({ data }: { data: FinanzasData }) {
+export function InvoicesPage({ data }: { data: FinanceData }) {
   const rootRef = useReveal<HTMLDivElement>()
   const { summary, paymentSummary, monthlyRevenue } = data
   const currentMonth = monthlyRevenue[monthlyRevenue.length - 1].month
@@ -14,25 +15,21 @@ export function FacturacionPage({ data }: { data: FinanzasData }) {
       label: 'Facturado en el mes',
       value: formatMoney(summary.monthInvoiced),
       tone: 'text-ink',
-      chip: 'bg-pear-soft',
     },
     {
       label: 'Cobrado',
       value: formatMoney(paymentSummary.paid.amount),
       tone: 'text-success',
-      chip: 'bg-mint-soft',
     },
     {
       label: 'Pendiente de cobro',
       value: formatMoney(paymentSummary.pending.amount),
       tone: 'text-warning',
-      chip: 'bg-pear-soft',
     },
     {
       label: 'Fallido',
       value: formatMoney(paymentSummary.failed.amount),
       tone: 'text-danger',
-      chip: 'bg-coral-soft',
     },
   ]
 
@@ -46,16 +43,7 @@ export function FacturacionPage({ data }: { data: FinanzasData }) {
 
       <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {stats.map((stat) => (
-          <div
-            key={stat.label}
-            data-reveal
-            className="rounded-[var(--radius-xl)] border border-rule bg-card p-4 shadow-[var(--shadow-whisper)]"
-          >
-            <p className="text-xs font-medium text-muted-foreground">{stat.label}</p>
-            <p className={`num mt-2 text-xl font-semibold leading-none tracking-tight sm:text-2xl ${stat.tone}`}>
-              {stat.value}
-            </p>
-          </div>
+          <StatCard key={stat.label} label={stat.label} value={stat.value} tone={stat.tone} />
         ))}
       </div>
 

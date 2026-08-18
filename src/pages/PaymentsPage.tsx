@@ -4,13 +4,14 @@ import { HandCoins } from 'lucide-react'
 import { PaymentsTable } from '@/components/payments/PaymentsTable'
 import { TallyCounter } from '@/components/payments/TallyCounter'
 import { SectionHeading } from '@/components/dashboard/SectionHeading'
+import { StatCard } from '@/components/dashboard/StatCard'
 import { Button } from '@/components/ui/button'
 import { useReveal } from '@/hooks/useReveal'
 import { burstAt } from '@/lib/anime'
 import { formatMoney, formatPercent } from '@/lib/format'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
-export function PagosPage({ data }: { data: FinanzasData }) {
+export function PaymentsPage({ data }: { data: FinanceData }) {
   const rootRef = useReveal<HTMLDivElement>()
   const buttonRef = useRef<HTMLButtonElement>(null)
   const [strokes, setStrokes] = useState(0)
@@ -49,28 +50,24 @@ export function PagosPage({ data }: { data: FinanzasData }) {
       value: formatMoney(paymentSummary.pending.amount),
       detail: `${paymentSummary.pending.count} facturas`,
       tone: 'text-warning',
-      chip: 'bg-pear-soft',
     },
     {
       label: 'Exitosos',
       value: formatMoney(paymentSummary.paid.amount),
       detail: `${paymentSummary.paid.count} pagos`,
       tone: 'text-success',
-      chip: 'bg-mint-soft',
     },
     {
       label: 'Fallidos',
       value: formatMoney(paymentSummary.failed.amount),
       detail: `${paymentSummary.failed.count} intentos`,
       tone: 'text-danger',
-      chip: 'bg-coral-soft',
     },
     {
       label: 'Tasa de cobro',
       value: formatPercent(summary.collectionRate),
       detail: 'cobradas / intentos del mes',
       tone: 'text-ink',
-      chip: 'bg-cyan-soft',
     },
   ]
 
@@ -84,17 +81,13 @@ export function PagosPage({ data }: { data: FinanzasData }) {
 
       <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {stats.map((stat) => (
-          <div
+          <StatCard
             key={stat.label}
-            data-reveal
-            className="rounded-[var(--radius-xl)] border border-rule bg-card p-4 shadow-[var(--shadow-whisper)]"
-          >
-            <p className="text-xs font-medium text-muted-foreground">{stat.label}</p>
-            <p className={`num mt-2 text-xl font-semibold leading-none tracking-tight sm:text-2xl ${stat.tone}`}>
-              {stat.value}
-            </p>
-            <p className="mt-1 text-xs text-faint">{stat.detail}</p>
-          </div>
+            label={stat.label}
+            value={stat.value}
+            detail={stat.detail}
+            tone={stat.tone}
+          />
         ))}
       </div>
 

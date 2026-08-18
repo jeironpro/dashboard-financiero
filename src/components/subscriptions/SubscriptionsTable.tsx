@@ -12,7 +12,7 @@ import {
 import { PLAN_META, SUBSCRIPTION_STATUS } from '@/lib/status'
 import { formatDate, formatMoney, formatNumber } from '@/lib/format'
 import { cn } from '@/lib/utils'
-import type { Subscription, SubscriptionStatus } from '@/types/finanzas'
+import type { Subscription, SubscriptionStatus } from '@/types/finance'
 
 const STATUS_ORDER: Record<SubscriptionStatus, number> = {
   active: 0,

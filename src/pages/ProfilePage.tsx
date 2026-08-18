@@ -12,7 +12,7 @@ import { SectionHeading } from '@/components/dashboard/SectionHeading'
 import { Avatar } from '@/components/profile/Avatar'
 import { useReveal } from '@/hooks/useReveal'
 import { formatDateTime } from '@/lib/format'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
 function DetailRow({
   icon: Icon,
@@ -36,7 +36,7 @@ function DetailRow({
   )
 }
 
-export function ProfilePage({ data }: { data: FinanzasData }) {
+export function ProfilePage({ data }: { data: FinanceData }) {
   const rootRef = useReveal<HTMLDivElement>()
   const { currentUser, company } = data
 

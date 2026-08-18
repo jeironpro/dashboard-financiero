@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/table'
 import { PAYMENT_METHOD_LABEL, PAYMENT_STATUS } from '@/lib/status'
 import { formatDateTime, formatMoney } from '@/lib/format'
-import type { Payment } from '@/types/finanzas'
+import type { Payment } from '@/types/finance'
 
 interface PaymentsTableProps {
   payments: Payment[]

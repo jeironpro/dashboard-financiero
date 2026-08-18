@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import {
-  IVA_RATE,
+  VAT_RATE,
   balanceTotals,
-  computeIvaMonth,
+  computeVatMonth,
   loadMockData,
 } from '@/data'
 
@@ -16,8 +16,8 @@ describe('loadMockData', () => {
     const last = data.monthlyRevenue[data.monthlyRevenue.length - 1]
     expect(last.month).toBe('2026-08')
     // El chart de ingresos del mes en curso = suma exacta de las facturas del mes.
-    expect(last.ingresos).toBe(data.summary.monthInvoiced)
-    expect(last.ingresos).toBe(407775)
+    expect(last.income).toBe(data.summary.monthInvoiced)
+    expect(last.income).toBe(407775)
   })
 
   it('desglosa el estado de pagos del mes desde las facturas', () => {
@@ -47,13 +47,13 @@ describe('loadMockData', () => {
   })
 
   it('totales YTD del estado de resultados (ejercicio fiscal Ene–Ago)', () => {
-    expect(data.summary.ytdIngresos).toBe(2578075)
-    expect(data.summary.ytdGastos).toBe(1579300)
-    expect(data.incomeStatement.ingresos).toBe(data.summary.ytdIngresos)
-    expect(data.incomeStatement.gastos).toBe(data.summary.ytdGastos)
-    expect(data.incomeStatement.utilidadBruta).toBe(998775)
-    expect(data.incomeStatement.isr).toBe(299633)
-    expect(data.incomeStatement.utilidadNeta).toBe(699142)
+    expect(data.summary.ytdIncome).toBe(2578075)
+    expect(data.summary.ytdExpenses).toBe(1579300)
+    expect(data.incomeStatement.income).toBe(data.summary.ytdIncome)
+    expect(data.incomeStatement.expenses).toBe(data.summary.ytdExpenses)
+    expect(data.incomeStatement.grossProfit).toBe(998775)
+    expect(data.incomeStatement.incomeTax).toBe(299633)
+    expect(data.incomeStatement.netIncome).toBe(699142)
     expect(data.incomeStatement.period).toBe('2026-01–2026-08')
   })
 
@@ -66,10 +66,10 @@ describe('loadMockData', () => {
   })
 
   it('el IVA mensual es 16 % del facturado y del gastado', () => {
-    const last = data.ivaMonthly[data.ivaMonthly.length - 1]
-    expect(last.ivaTrasladado).toBe(Math.round(407775 * IVA_RATE))
-    expect(last.ivaAcreditable).toBe(Math.round(221600 * IVA_RATE))
-    expect(last.ivaPorPagar).toBe(last.ivaTrasladado - last.ivaAcreditable)
+    const last = data.vatMonthly[data.vatMonthly.length - 1]
+    expect(last.vatCharged).toBe(Math.round(407775 * VAT_RATE))
+    expect(last.vatCreditable).toBe(Math.round(221600 * VAT_RATE))
+    expect(last.vatPayable).toBe(last.vatCharged - last.vatCreditable)
   })
 
   it('desplaza las fechas si «ahora» no es el mes de generación', () => {
@@ -83,11 +83,11 @@ describe('loadMockData', () => {
   })
 })
 
-describe('computeIvaMonth', () => {
+describe('computeVatMonth', () => {
   it('calcula IVA trasladado, acreditable y a pagar', () => {
-    const result = computeIvaMonth({ month: '2026-08', ingresos: 100000, gastos: 60000 })
-    expect(result.ivaTrasladado).toBe(16000)
-    expect(result.ivaAcreditable).toBe(9600)
-    expect(result.ivaPorPagar).toBe(6400)
+    const result = computeVatMonth({ month: '2026-08', income: 100000, expenses: 60000 })
+    expect(result.vatCharged).toBe(16000)
+    expect(result.vatCreditable).toBe(9600)
+    expect(result.vatPayable).toBe(6400)
   })
 })

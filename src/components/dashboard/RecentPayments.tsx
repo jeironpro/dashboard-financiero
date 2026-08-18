@@ -2,10 +2,10 @@ import { Landmark } from 'lucide-react'
 import { StatusBadge } from './StatusBadge'
 import { PAYMENT_METHOD_LABEL, PAYMENT_STATUS } from '@/lib/status'
 import { formatMoney, timeAgo } from '@/lib/format'
-import type { FinanzasData } from '@/types/finanzas'
+import type { FinanceData } from '@/types/finance'
 
 interface RecentPaymentsProps {
-  data: FinanzasData
+  data: FinanceData
 }
 
 export function RecentPayments({ data }: RecentPaymentsProps) {

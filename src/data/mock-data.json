@@ -19,18 +19,18 @@
     "lastLogin": "2026-08-18T08:40:00Z"
   },
   "monthlyRevenue": [
-    { "month": "2025-09", "ingresos": 182400, "gastos": 148000 },
-    { "month": "2025-10", "ingresos": 196800, "gastos": 152000 },
-    { "month": "2025-11", "ingresos": 213500, "gastos": 158400 },
-    { "month": "2025-12", "ingresos": 231200, "gastos": 171000 },
-    { "month": "2026-01", "ingresos": 248900, "gastos": 176500 },
-    { "month": "2026-02", "ingresos": 267300, "gastos": 180200 },
-    { "month": "2026-03", "ingresos": 289600, "gastos": 186400 },
-    { "month": "2026-04", "ingresos": 305100, "gastos": 192800 },
-    { "month": "2026-05", "ingresos": 328400, "gastos": 199600 },
-    { "month": "2026-06", "ingresos": 351800, "gastos": 207300 },
-    { "month": "2026-07", "ingresos": 379200, "gastos": 214900 },
-    { "month": "2026-08", "ingresos": 407775, "gastos": 221600 }
+    { "month": "2025-09", "income": 182400, "expenses": 148000 },
+    { "month": "2025-10", "income": 196800, "expenses": 152000 },
+    { "month": "2025-11", "income": 213500, "expenses": 158400 },
+    { "month": "2025-12", "income": 231200, "expenses": 171000 },
+    { "month": "2026-01", "income": 248900, "expenses": 176500 },
+    { "month": "2026-02", "income": 267300, "expenses": 180200 },
+    { "month": "2026-03", "income": 289600, "expenses": 186400 },
+    { "month": "2026-04", "income": 305100, "expenses": 192800 },
+    { "month": "2026-05", "income": 328400, "expenses": 199600 },
+    { "month": "2026-06", "income": 351800, "expenses": 207300 },
+    { "month": "2026-07", "income": 379200, "expenses": 214900 },
+    { "month": "2026-08", "income": 407775, "expenses": 221600 }
   ],
   "plans": [
     {

@@ -1,4 +1,4 @@
-import type { InvoiceStatus, PaymentMethod, PlanId, SubscriptionStatus } from '@/types/finanzas'
+import type { InvoiceStatus, PaymentMethod, PlanId, SubscriptionStatus } from '@/types/finance'
 
 export interface StatusMeta {
   label: string
