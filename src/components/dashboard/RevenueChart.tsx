@@ -50,7 +50,7 @@ export function RevenueChart({ data, className }: RevenueChartProps) {
       </div>
 
       <div
-        className="mt-4 flex h-44 items-end gap-1 sm:h-52 sm:gap-1.5"
+        className="mt-4 flex h-44 gap-1 sm:h-52 sm:gap-1.5"
         role="img"
         aria-label="Gráfica de barras de facturado y gastos por mes, últimos 12 meses"
       >

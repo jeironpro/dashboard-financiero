@@ -58,9 +58,29 @@ export function reveal(
   })
 }
 
+/**
+ * Longitud de trazo de un elemento SVG.
+ * `getTotalLength()` no existe para `<line>` (Chrome lanza InvalidStateError),
+ * así que se calcula con la distancia euclidiana entre sus extremos.
+ */
+function svgStrokeLength(el: SVGGeometryElement): number {
+  if (el.tagName === 'line') {
+    const x1 = Number(el.getAttribute('x1') ?? 0)
+    const y1 = Number(el.getAttribute('y1') ?? 0)
+    const x2 = Number(el.getAttribute('x2') ?? 0)
+    const y2 = Number(el.getAttribute('y2') ?? 0)
+    return Math.hypot(x2 - x1, y2 - y1)
+  }
+  try {
+    return el.getTotalLength()
+  } catch {
+    return 0
+  }
+}
+
 /** Dibuja el trazo de un elemento SVG (línea, círculo, path) como parte del reveal. */
 export function drawLine(el: SVGGeometryElement, opts: { duration?: number } = {}): void {
-  const length = el.getTotalLength()
+  const length = svgStrokeLength(el)
   el.style.strokeDasharray = `${length}`
   el.style.strokeDashoffset = `${length}`
   if (prefersReducedMotion()) {
