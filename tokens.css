@@ -1,0 +1,116 @@
+/* Hallmark · genre: playful-corporate (Hum, pedido explícito del usuario, referencia usehallmark.com/examples/tally) · macrostructure: Stat-Led · theme: Hum (Tally) · enrichment: B (SVG tally) · nav: N3 variante rail flotante · footer: Ft2 (inline single line) */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R4 V5 */
+/* Hallmark · tone: warm-but-professional · anchor hue: 95 (pear) · paper: oklch(97% 0.012 95) · accent: oklch(86% 0.18 95) */
+/* Hallmark · contrast: pass (40–41) · slop: pass (42–45) */
+/* Hallmark · mobile: pass (34, 49, 50–57) */
+
+:root {
+  /* Color — papel / tinta / neutros (crema cálida con tinte pear, nunca blanco puro) */
+  --color-paper: oklch(97% 0.012 95);
+  --color-paper-2: oklch(94% 0.016 95);
+  --color-paper-3: oklch(91% 0.02 95);
+  --color-card: oklch(99% 0.004 95);
+  --color-rule: oklch(89% 0.016 95);
+  --color-rule-strong: oklch(82% 0.02 95);
+
+  /* Tinta a opacidad (disciplina Hum: modificar la tinta con alpha, no crear hex nuevos) */
+  --color-ink: oklch(20% 0.012 250);
+  --color-ink-2: oklch(20% 0.012 250 / 0.62);
+  --color-ink-3: oklch(20% 0.012 250 / 0.45);
+
+  /* Color — acentos multi (cada acento es dueño de su propia superficie) */
+  --color-accent: oklch(86% 0.18 95); /* pear — acción primaria */
+  --color-accent-deep: oklch(74% 0.17 95);
+  --color-pear-soft: oklch(94% 0.04 95);
+
+  --color-accent-2: oklch(66% 0.18 235); /* sky-cyan — enlaces, tintes hover */
+  --color-accent-2-deep: oklch(56% 0.18 235);
+  --color-cyan-soft: oklch(94% 0.03 235);
+
+  --color-accent-3: oklch(68% 0.24 18); /* coral — pop, momento de alta energía */
+  --color-accent-3-deep: oklch(56% 0.24 18);
+  --color-coral-soft: oklch(95% 0.03 18);
+
+  --color-mint: oklch(80% 0.16 150); /* éxito */
+  --color-mint-deep: oklch(58% 0.15 150);
+  --color-mint-soft: oklch(95% 0.03 150);
+
+  --color-lavender: oklch(74% 0.16 305); /* ocasional — chips decorativos */
+  --color-lavender-deep: oklch(56% 0.16 305);
+  --color-lavender-soft: oklch(95% 0.03 305);
+
+  /* Color — semánticos de estado (siempre acompañados de icono + texto) */
+  --color-success: var(--color-mint-deep);
+  --color-success-soft: var(--color-mint-soft);
+  --color-warning: oklch(58% 0.15 95);
+  --color-warning-soft: var(--color-pear-soft);
+  --color-danger: var(--color-accent-3-deep);
+  --color-danger-soft: var(--color-coral-soft);
+  --color-focus: var(--color-accent-2);
+
+  /* Tipografía — 2 familias (Hum: sin serif en ningún lugar) */
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* Escala tipográfica — ratio 1.25, base 16px */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.375rem;
+  --text-4xl: 3rem;
+
+  /* Espaciado — escala 4pt */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Radios — el tema redondeado: sin esquinas cuadradas en ningún lugar */
+  --radius-xs: 8px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px; /* tarjetas */
+  --radius-input: 12px;
+  --radius-full: 999px;
+
+  /* Movimiento */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-snap: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+  --dur-counter: 1200ms;
+
+  /* Elevación (escala nombrada) */
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-sticky-nav: 300;
+  --z-modal: 400;
+
+  /* Sombras — física de tarjeta Hum (contacto + ambiente) */
+  --shadow-whisper: 0 2px 8px -4px oklch(20% 0.012 250 / 0.08);
+  --shadow-card: 0 12px 32px -16px oklch(20% 0.012 250 / 0.14);
+  --shadow-card-hover: 0 20px 44px -20px oklch(20% 0.012 250 / 0.22);
+  --shadow-btn-cast: 0 6px 12px -3px oklch(76% 0.2 95 / 0.45);
+
+  /* Estructura del shell */
+  --page-max: 1440px;
+  --page-gutter: 1rem;
+  --banner-height: 3.5rem;
+  --sidebar-width: 15.5rem;
+}
