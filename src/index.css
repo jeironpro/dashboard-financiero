@@ -232,6 +232,11 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
+  .js [data-bar] {
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+  }
 }
 
 /* Keyframes de chrome (sheet / menú): reemplazan tailwindcss-animate con easings tokenizados. */
