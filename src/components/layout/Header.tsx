@@ -13,9 +13,10 @@ interface HeaderProps {
   data: FinanzasData
   onMenuClick: () => void
   onRefresh: () => void
+  onProfile: () => void
 }
 
-export function Header({ view, data, onMenuClick, onRefresh }: HeaderProps) {
+export function Header({ view, data, onMenuClick, onRefresh, onProfile }: HeaderProps) {
   const [refreshing, setRefreshing] = useState(false)
   const currentMonth = formatMonthKey(data.monthlyRevenue[data.monthlyRevenue.length - 1].month)
 
@@ -60,7 +61,7 @@ export function Header({ view, data, onMenuClick, onRefresh }: HeaderProps) {
         <TooltipContent>Actualizar datos</TooltipContent>
       </Tooltip>
 
-      <UserMenu user={data.currentUser} />
+      <UserMenu user={data.currentUser} onProfile={onProfile} />
     </header>
   )
 }

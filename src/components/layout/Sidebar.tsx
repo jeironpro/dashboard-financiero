@@ -9,10 +9,17 @@ interface SidebarContentProps {
   data: FinanzasData
   onNavigate: (view: View) => void
   onNavigateMobile?: () => void
+  onProfile: () => void
 }
 
 /** Contenido compartido entre la barra lateral fija (escritorio) y el Sheet (móvil). */
-export function SidebarContent({ active, data, onNavigate, onNavigateMobile }: SidebarContentProps) {
+export function SidebarContent({
+  active,
+  data,
+  onNavigate,
+  onNavigateMobile,
+  onProfile,
+}: SidebarContentProps) {
   const { company, currentUser } = data
 
   return (
@@ -80,12 +87,27 @@ export function SidebarContent({ active, data, onNavigate, onNavigateMobile }: S
         })}
       </nav>
 
-      <div className="m-3 mt-4 flex items-center gap-2.5 rounded-xl border border-rule bg-card p-3">
-        <Avatar name={currentUser.name} className="size-8 text-xs" />
-        <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-ink">{currentUser.name}</p>
-          <p className="truncate text-xs text-muted-foreground">{currentUser.role}</p>
-        </div>
+      <div className="m-3 mt-4">
+        <button
+          type="button"
+          onClick={() => {
+            onProfile()
+            onNavigateMobile?.()
+          }}
+          aria-current={active === 'profile' ? 'page' : undefined}
+          className={cn(
+            'flex w-full items-center gap-2.5 rounded-xl border p-3 text-left transition-colors duration-[var(--dur-short)]',
+            active === 'profile'
+              ? 'border-pear-deep/40 bg-pear-soft'
+              : 'border-rule bg-card hover:bg-paper-2',
+          )}
+        >
+          <Avatar name={currentUser.name} className="size-8 text-xs" />
+          <span className="min-w-0">
+            <span className="block truncate text-sm font-semibold text-ink">{currentUser.name}</span>
+            <span className="block truncate text-xs text-muted-foreground">{currentUser.role}</span>
+          </span>
+        </button>
       </div>
     </div>
   )
