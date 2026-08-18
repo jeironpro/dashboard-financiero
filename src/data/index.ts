@@ -205,8 +205,13 @@ export function loadMockData(now: number = Date.now()): FinanzasData {
     ingresos: paymentSummary.paid.amount + paymentSummary.pending.amount + paymentSummary.failed.amount,
   }
 
-  const summary = computeSummary(subscriptions, invoices, paymentSummary, monthlyRevenue)
-  const incomeStatement = computeIncomeStatement(monthlyRevenue)
+  // Reportes y YTD usan solo los meses del ejercicio fiscal; el chart conserva
+  // los 12 meses como ventana móvil.
+  const fiscalYear = String(raw.company.fiscalYear)
+  const fiscalMonths = monthlyRevenue.filter((p) => p.month.startsWith(fiscalYear))
+
+  const summary = computeSummary(subscriptions, invoices, paymentSummary, fiscalMonths)
+  const incomeStatement = computeIncomeStatement(fiscalMonths)
   const ivaMonthly = monthlyRevenue.map(computeIvaMonth)
   const balanceSheet: BalanceSheet = {
     ...raw.balanceSheet,
