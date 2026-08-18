@@ -17,6 +17,7 @@ export function PaymentDonut({ summary, className }: PaymentDonutProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   const total = summary.paid.amount + summary.pending.amount + summary.failed.amount
+  const totalCount = summary.paid.count + summary.pending.count + summary.failed.count
   const segments = [
     {
       key: 'paid' as const,
@@ -101,8 +102,10 @@ export function PaymentDonut({ summary, className }: PaymentDonutProps) {
             ))}
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="num text-xl font-semibold text-ink">{formatMoney(total)}</span>
-            <span className="text-[10px] uppercase tracking-wider text-faint">total</span>
+            <span className="num text-2xl font-semibold leading-none text-ink">
+              {formatNumber(totalCount)}
+            </span>
+            <span className="mt-1 text-[10px] uppercase tracking-wider text-faint">movimientos</span>
           </div>
         </div>
 
