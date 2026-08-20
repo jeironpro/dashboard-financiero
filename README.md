@@ -12,15 +12,15 @@ Frontend de dashboard financiero para portafolio personal: **ingresos, facturaci
 
 ## 🛠 Stack
 
-| Capa | Tecnología |
-|---|---|
-| Framework | React 19 + TypeScript + Vite |
-| Paquete | yarn 4 (`nodeLinker: node-modules`) |
-| UI | shadcn/ui (Radix) sobre Tailwind CSS v4 |
-| Diseño | Skill **Hallmark** · Tema **Hum** · Macroestructura **Stat-Led** |
+| Capa      | Tecnología                                                                                          |
+| --------- | --------------------------------------------------------------------------------------------------- |
+| Framework | React 19 + TypeScript + Vite                                                                        |
+| Paquete   | yarn 4 (`nodeLinker: node-modules`)                                                                 |
+| UI        | shadcn/ui (Radix) sobre Tailwind CSS v4                                                             |
+| Diseño    | Skill **Hallmark** · Tema **Hum** · Macroestructura **Stat-Led**                                    |
 | Animación | animejs v4 (contadores, reveals, trazos SVG, barras, star-burst) — respeta `prefers-reduced-motion` |
-| Datos | `src/data/mock-data.json` (MOCK realista en MXN, internamente consistente) |
-| Testing | vitest + testing-library |
+| Datos     | `src/data/mock-data.json` (MOCK realista en MXN, internamente consistente)                          |
+| Testing   | vitest + testing-library                                                                            |
 
 ## 🚀 Arranque
 

@@ -6,22 +6,22 @@ import { formatMoney, formatNumber } from '@/lib/format'
 import type { FinanceData } from '@/types/finance'
 
 export function SubscriptionsPage({ data }: { data: FinanceData }) {
-  const rootRef = useReveal<HTMLDivElement>()
-  const { summary } = data
+    const rootRef = useReveal<HTMLDivElement>()
+    const { summary } = data
 
-  return (
-    <div ref={rootRef}>
-      <SectionHeading
-        eyebrow="03 · SUSCRIPCIONES"
-        title="Ingreso recurrente por plan"
-        lead={`MRR de ${formatMoney(summary.mrr)} con ${formatNumber(summary.activeSubscriptions)} suscripciones activas, ${formatNumber(summary.overdueSubscriptions)} atrasadas y ${formatNumber(summary.trialSubscriptions)} en prueba.`}
-      />
+    return (
+        <div ref={rootRef}>
+            <SectionHeading
+                eyebrow="03 · SUSCRIPCIONES"
+                title="Ingreso recurrente por plan"
+                lead={`MRR de ${formatMoney(summary.mrr)} con ${formatNumber(summary.activeSubscriptions)} suscripciones activas, ${formatNumber(summary.overdueSubscriptions)} atrasadas y ${formatNumber(summary.trialSubscriptions)} en prueba.`}
+            />
 
-      <PlanCards data={data} />
+            <PlanCards data={data} />
 
-      <div className="mt-5">
-        <SubscriptionsTable subscriptions={data.subscriptions} />
-      </div>
-    </div>
-  )
+            <div className="mt-5">
+                <SubscriptionsTable subscriptions={data.subscriptions} />
+            </div>
+        </div>
+    )
 }
