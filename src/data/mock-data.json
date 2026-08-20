@@ -1,153 +1,850 @@
 {
-  "generatedAt": "2026-08-18T09:00:00Z",
-  "company": {
-    "name": "Suma Labs, S.A. de C.V.",
-    "taxId": "SUM1908123K4",
-    "address": "Av. Insurgentes Sur 1602, Col. Crédito Constructor",
-    "city": "Ciudad de México, MX",
-    "currency": "MXN",
-    "fiscalYear": 2026,
-    "website": "suma.mx"
-  },
-  "currentUser": {
-    "id": "usr-fin-director",
-    "name": "Mariana Quiroga",
-    "email": "mariana.quiroga@suma.mx",
-    "role": "Directora de Finanzas",
-    "department": "Finanzas y contabilidad",
-    "location": "CDMX, MX",
-    "lastLogin": "2026-08-18T08:40:00Z"
-  },
-  "monthlyRevenue": [
-    { "month": "2025-09", "income": 182400, "expenses": 148000 },
-    { "month": "2025-10", "income": 196800, "expenses": 152000 },
-    { "month": "2025-11", "income": 213500, "expenses": 158400 },
-    { "month": "2025-12", "income": 231200, "expenses": 171000 },
-    { "month": "2026-01", "income": 248900, "expenses": 176500 },
-    { "month": "2026-02", "income": 267300, "expenses": 180200 },
-    { "month": "2026-03", "income": 289600, "expenses": 186400 },
-    { "month": "2026-04", "income": 305100, "expenses": 192800 },
-    { "month": "2026-05", "income": 328400, "expenses": 199600 },
-    { "month": "2026-06", "income": 351800, "expenses": 207300 },
-    { "month": "2026-07", "income": 379200, "expenses": 214900 },
-    { "month": "2026-08", "income": 407775, "expenses": 221600 }
-  ],
-  "plans": [
-    {
-      "id": "starter",
-      "name": "Starter",
-      "monthlyAmount": 499,
-      "tagline": "Para equipos que empiezan a medir uso.",
-      "features": ["Hasta 5 proyectos", "10k eventos al mes", "Facturación mensual", "Soporte por correo"]
+    "generatedAt": "2026-08-18T09:00:00Z",
+    "company": {
+        "name": "Suma Labs, S.A. de C.V.",
+        "taxId": "SUM1908123K4",
+        "address": "Av. Insurgentes Sur 1602, Col. Crédito Constructor",
+        "city": "Ciudad de México, MX",
+        "currency": "MXN",
+        "fiscalYear": 2026,
+        "website": "suma.mx"
     },
-    {
-      "id": "growth",
-      "name": "Growth",
-      "monthlyAmount": 999,
-      "tagline": "Para productos con ingresos reales.",
-      "features": ["Proyectos ilimitados", "100k eventos al mes", "Facturación automática", "Soporte prioritario"]
+    "currentUser": {
+        "id": "usr-fin-director",
+        "name": "Mariana Quiroga",
+        "email": "mariana.quiroga@suma.mx",
+        "role": "Directora de Finanzas",
+        "department": "Finanzas y contabilidad",
+        "location": "CDMX, MX",
+        "lastLogin": "2026-08-18T08:40:00Z"
     },
-    {
-      "id": "scale",
-      "name": "Scale",
-      "monthlyAmount": 2499,
-      "tagline": "Para empresas que facturan lo que usan.",
-      "features": ["Sin tope de eventos", "Métricas avanzadas", "Net-terms y multi-moneda", "Administrador dedicado"]
+    "monthlyRevenue": [
+        { "month": "2025-09", "income": 182400, "expenses": 148000 },
+        { "month": "2025-10", "income": 196800, "expenses": 152000 },
+        { "month": "2025-11", "income": 213500, "expenses": 158400 },
+        { "month": "2025-12", "income": 231200, "expenses": 171000 },
+        { "month": "2026-01", "income": 248900, "expenses": 176500 },
+        { "month": "2026-02", "income": 267300, "expenses": 180200 },
+        { "month": "2026-03", "income": 289600, "expenses": 186400 },
+        { "month": "2026-04", "income": 305100, "expenses": 192800 },
+        { "month": "2026-05", "income": 328400, "expenses": 199600 },
+        { "month": "2026-06", "income": 351800, "expenses": 207300 },
+        { "month": "2026-07", "income": 379200, "expenses": 214900 },
+        { "month": "2026-08", "income": 407775, "expenses": 221600 }
+    ],
+    "plans": [
+        {
+            "id": "starter",
+            "name": "Starter",
+            "monthlyAmount": 499,
+            "tagline": "Para equipos que empiezan a medir uso.",
+            "features": [
+                "Hasta 5 proyectos",
+                "10k eventos al mes",
+                "Facturación mensual",
+                "Soporte por correo"
+            ]
+        },
+        {
+            "id": "growth",
+            "name": "Growth",
+            "monthlyAmount": 999,
+            "tagline": "Para productos con ingresos reales.",
+            "features": [
+                "Proyectos ilimitados",
+                "100k eventos al mes",
+                "Facturación automática",
+                "Soporte prioritario"
+            ]
+        },
+        {
+            "id": "scale",
+            "name": "Scale",
+            "monthlyAmount": 2499,
+            "tagline": "Para empresas que facturan lo que usan.",
+            "features": [
+                "Sin tope de eventos",
+                "Métricas avanzadas",
+                "Net-terms y multi-moneda",
+                "Administrador dedicado"
+            ]
+        }
+    ],
+    "subscriptions": [
+        {
+            "id": "sub-001",
+            "client": "TecnoVía MX",
+            "plan": "scale",
+            "status": "active",
+            "seats": 8,
+            "monthlyAmount": 19992,
+            "startedAt": "2025-09-12",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-002",
+            "client": "Grupo Altamar",
+            "plan": "scale",
+            "status": "active",
+            "seats": 6,
+            "monthlyAmount": 14994,
+            "startedAt": "2025-10-03",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-003",
+            "client": "LogisTrack",
+            "plan": "growth",
+            "status": "active",
+            "seats": 5,
+            "monthlyAmount": 4995,
+            "startedAt": "2025-10-21",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-004",
+            "client": "Finazza",
+            "plan": "scale",
+            "status": "active",
+            "seats": 10,
+            "monthlyAmount": 24990,
+            "startedAt": "2025-11-08",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-005",
+            "client": "MedicLabs",
+            "plan": "growth",
+            "status": "active",
+            "seats": 12,
+            "monthlyAmount": 11988,
+            "startedAt": "2025-11-19",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-006",
+            "client": "AgroInsight",
+            "plan": "growth",
+            "status": "active",
+            "seats": 6,
+            "monthlyAmount": 5994,
+            "startedAt": "2025-12-02",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-007",
+            "client": "CityRide",
+            "plan": "scale",
+            "status": "active",
+            "seats": 20,
+            "monthlyAmount": 49980,
+            "startedAt": "2025-12-15",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-008",
+            "client": "DataWise",
+            "plan": "growth",
+            "status": "active",
+            "seats": 8,
+            "monthlyAmount": 7992,
+            "startedAt": "2026-01-06",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-009",
+            "client": "Café Origen",
+            "plan": "starter",
+            "status": "active",
+            "seats": 6,
+            "monthlyAmount": 2994,
+            "startedAt": "2026-01-14",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-010",
+            "client": "Inmobiliaria Vela",
+            "plan": "growth",
+            "status": "overdue",
+            "seats": 10,
+            "monthlyAmount": 9990,
+            "startedAt": "2026-01-27",
+            "nextBillingAt": "2026-08-01"
+        },
+        {
+            "id": "sub-011",
+            "client": "FreshMark",
+            "plan": "scale",
+            "status": "active",
+            "seats": 12,
+            "monthlyAmount": 29988,
+            "startedAt": "2026-02-09",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-012",
+            "client": "Soluciones Kipu",
+            "plan": "growth",
+            "status": "active",
+            "seats": 15,
+            "monthlyAmount": 14985,
+            "startedAt": "2026-02-20",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-013",
+            "client": "EduSpark",
+            "plan": "starter",
+            "status": "active",
+            "seats": 20,
+            "monthlyAmount": 9980,
+            "startedAt": "2026-03-04",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-014",
+            "client": "VetCare+",
+            "plan": "growth",
+            "status": "active",
+            "seats": 4,
+            "monthlyAmount": 3996,
+            "startedAt": "2026-03-17",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-015",
+            "client": "PackGo",
+            "plan": "scale",
+            "status": "active",
+            "seats": 10,
+            "monthlyAmount": 24990,
+            "startedAt": "2026-03-30",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-016",
+            "client": "NorteStudio",
+            "plan": "starter",
+            "status": "active",
+            "seats": 8,
+            "monthlyAmount": 3992,
+            "startedAt": "2026-04-08",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-017",
+            "client": "BioCosecha",
+            "plan": "growth",
+            "status": "active",
+            "seats": 6,
+            "monthlyAmount": 5994,
+            "startedAt": "2026-04-22",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-018",
+            "client": "UrbanLoop",
+            "plan": "scale",
+            "status": "active",
+            "seats": 10,
+            "monthlyAmount": 24990,
+            "startedAt": "2026-05-05",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-019",
+            "client": "Clínica San Rafael",
+            "plan": "growth",
+            "status": "active",
+            "seats": 30,
+            "monthlyAmount": 29970,
+            "startedAt": "2026-05-19",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-020",
+            "client": "Mercado Solar",
+            "plan": "scale",
+            "status": "active",
+            "seats": 14,
+            "monthlyAmount": 34986,
+            "startedAt": "2026-06-01",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-021",
+            "client": "Koffee Labs",
+            "plan": "growth",
+            "status": "active",
+            "seats": 11,
+            "monthlyAmount": 10989,
+            "startedAt": "2026-06-16",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-022",
+            "client": "AeroParts",
+            "plan": "starter",
+            "status": "active",
+            "seats": 5,
+            "monthlyAmount": 2495,
+            "startedAt": "2026-06-29",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-023",
+            "client": "TerraForge",
+            "plan": "scale",
+            "status": "overdue",
+            "seats": 8,
+            "monthlyAmount": 19992,
+            "startedAt": "2026-07-07",
+            "nextBillingAt": "2026-08-01"
+        },
+        {
+            "id": "sub-024",
+            "client": "Mindful Apps",
+            "plan": "starter",
+            "status": "overdue",
+            "seats": 3,
+            "monthlyAmount": 1497,
+            "startedAt": "2026-07-14",
+            "nextBillingAt": "2026-08-01"
+        },
+        {
+            "id": "sub-025",
+            "client": "Casa de las Flores",
+            "plan": "starter",
+            "status": "trial",
+            "seats": 3,
+            "monthlyAmount": 1497,
+            "startedAt": "2026-08-04",
+            "nextBillingAt": "2026-08-25"
+        },
+        {
+            "id": "sub-026",
+            "client": "RoboConstruct",
+            "plan": "starter",
+            "status": "trial",
+            "seats": 2,
+            "monthlyAmount": 998,
+            "startedAt": "2026-08-11",
+            "nextBillingAt": "2026-09-01"
+        },
+        {
+            "id": "sub-027",
+            "client": "Almacén Norte",
+            "plan": "growth",
+            "status": "canceled",
+            "seats": 4,
+            "monthlyAmount": 3996,
+            "startedAt": "2026-02-01",
+            "nextBillingAt": "2026-06-30"
+        },
+        {
+            "id": "sub-028",
+            "client": "Studio Piksel",
+            "plan": "starter",
+            "status": "canceled",
+            "seats": 6,
+            "monthlyAmount": 2994,
+            "startedAt": "2026-03-01",
+            "nextBillingAt": "2026-07-15"
+        }
+    ],
+    "invoices": [
+        {
+            "id": "inv-0781",
+            "folio": "INV-0781",
+            "client": "TecnoVía MX",
+            "concept": "Licencias Growth ×8 · julio",
+            "issuedAt": "2026-07-01T09:00:00Z",
+            "dueAt": "2026-07-15T23:59:59Z",
+            "amount": 7992,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0782",
+            "folio": "INV-0782",
+            "client": "Grupo Altamar",
+            "concept": "Setup + licencias Scale · julio",
+            "issuedAt": "2026-07-01T09:05:00Z",
+            "dueAt": "2026-07-20T23:59:59Z",
+            "amount": 24990,
+            "status": "paid",
+            "paymentMethod": "TDC"
+        },
+        {
+            "id": "inv-0783",
+            "folio": "INV-0783",
+            "client": "LogisTrack",
+            "concept": "Licencias Growth ×5 · julio",
+            "issuedAt": "2026-07-01T09:10:00Z",
+            "dueAt": "2026-07-15T23:59:59Z",
+            "amount": 4995,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0784",
+            "folio": "INV-0784",
+            "client": "Finazza",
+            "concept": "Licencias Scale ×2 · julio",
+            "issuedAt": "2026-07-01T09:15:00Z",
+            "dueAt": "2026-07-18T23:59:59Z",
+            "amount": 4998,
+            "status": "paid",
+            "paymentMethod": "TDD"
+        },
+        {
+            "id": "inv-0785",
+            "folio": "INV-0785",
+            "client": "MedicLabs",
+            "concept": "Licencias Starter ×12 · julio",
+            "issuedAt": "2026-07-01T09:20:00Z",
+            "dueAt": "2026-07-15T23:59:59Z",
+            "amount": 5988,
+            "status": "failed",
+            "paymentMethod": "TDC"
+        },
+        {
+            "id": "inv-0786",
+            "folio": "INV-0786",
+            "client": "AgroInsight",
+            "concept": "Licencias Growth ×3 · julio",
+            "issuedAt": "2026-07-01T09:25:00Z",
+            "dueAt": "2026-07-15T23:59:59Z",
+            "amount": 2997,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0787",
+            "folio": "INV-0787",
+            "client": "CityRide",
+            "concept": "Licencias Scale ×4 · julio",
+            "issuedAt": "2026-07-01T09:30:00Z",
+            "dueAt": "2026-07-18T23:59:59Z",
+            "amount": 9996,
+            "status": "paid",
+            "paymentMethod": "transferencia"
+        },
+        {
+            "id": "inv-0788",
+            "folio": "INV-0788",
+            "client": "DataWise",
+            "concept": "Licencias Starter ×6 · julio",
+            "issuedAt": "2026-07-01T09:35:00Z",
+            "dueAt": "2026-07-20T23:59:59Z",
+            "amount": 2994,
+            "status": "pending",
+            "paymentMethod": null
+        },
+        {
+            "id": "inv-0789",
+            "folio": "INV-0789",
+            "client": "Café Origen",
+            "concept": "Licencias Starter ×4 · julio",
+            "issuedAt": "2026-07-01T09:40:00Z",
+            "dueAt": "2026-07-15T23:59:59Z",
+            "amount": 1996,
+            "status": "paid",
+            "paymentMethod": "TDD"
+        },
+        {
+            "id": "inv-0790",
+            "folio": "INV-0790",
+            "client": "Inmobiliaria Vela",
+            "concept": "Licencias Growth ×10 · julio",
+            "issuedAt": "2026-07-01T09:45:00Z",
+            "dueAt": "2026-07-15T23:59:59Z",
+            "amount": 9990,
+            "status": "failed",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0771",
+            "folio": "INV-0771",
+            "client": "FreshMark",
+            "concept": "Licencias Starter ×8 · junio",
+            "issuedAt": "2026-06-01T09:00:00Z",
+            "dueAt": "2026-06-15T23:59:59Z",
+            "amount": 3992,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0772",
+            "folio": "INV-0772",
+            "client": "PackGo",
+            "concept": "Licencias Growth ×6 · junio",
+            "issuedAt": "2026-06-01T09:05:00Z",
+            "dueAt": "2026-06-18T23:59:59Z",
+            "amount": 5994,
+            "status": "paid",
+            "paymentMethod": "TDC"
+        },
+        {
+            "id": "inv-0773",
+            "folio": "INV-0773",
+            "client": "Clínica San Rafael",
+            "concept": "Licencias Growth ×20 · junio",
+            "issuedAt": "2026-06-01T09:10:00Z",
+            "dueAt": "2026-06-20T23:59:59Z",
+            "amount": 19980,
+            "status": "paid",
+            "paymentMethod": "transferencia"
+        },
+        {
+            "id": "inv-0774",
+            "folio": "INV-0774",
+            "client": "AeroParts",
+            "concept": "Licencias Starter ×3 · junio",
+            "issuedAt": "2026-06-01T09:15:00Z",
+            "dueAt": "2026-06-15T23:59:59Z",
+            "amount": 1497,
+            "status": "failed",
+            "paymentMethod": "TDD"
+        },
+        {
+            "id": "inv-0801",
+            "folio": "INV-0801",
+            "client": "FreshMark",
+            "concept": "Licencias Scale ×6 · agosto",
+            "issuedAt": "2026-08-01T09:00:00Z",
+            "dueAt": "2026-08-15T23:59:59Z",
+            "amount": 14994,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0802",
+            "folio": "INV-0802",
+            "client": "Soluciones Kipu",
+            "concept": "Licencias Growth ×15 · agosto",
+            "issuedAt": "2026-08-01T09:05:00Z",
+            "dueAt": "2026-08-15T23:59:59Z",
+            "amount": 14985,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0803",
+            "folio": "INV-0803",
+            "client": "EduSpark",
+            "concept": "Licencias Starter ×20 · agosto",
+            "issuedAt": "2026-08-01T09:10:00Z",
+            "dueAt": "2026-08-18T23:59:59Z",
+            "amount": 9980,
+            "status": "paid",
+            "paymentMethod": "TDC"
+        },
+        {
+            "id": "inv-0804",
+            "folio": "INV-0804",
+            "client": "VetCare+",
+            "concept": "Licencias Growth ×4 · agosto",
+            "issuedAt": "2026-08-01T09:15:00Z",
+            "dueAt": "2026-08-15T23:59:59Z",
+            "amount": 3996,
+            "status": "paid",
+            "paymentMethod": "TDD"
+        },
+        {
+            "id": "inv-0805",
+            "folio": "INV-0805",
+            "client": "PackGo",
+            "concept": "Licencias Scale ×10 · agosto (incluye sobreuso)",
+            "issuedAt": "2026-08-01T09:20:00Z",
+            "dueAt": "2026-08-18T23:59:59Z",
+            "amount": 24990,
+            "status": "paid",
+            "paymentMethod": "transferencia"
+        },
+        {
+            "id": "inv-0806",
+            "folio": "INV-0806",
+            "client": "NorteStudio",
+            "concept": "Licencias Starter ×8 · agosto",
+            "issuedAt": "2026-08-01T09:25:00Z",
+            "dueAt": "2026-08-15T23:59:59Z",
+            "amount": 3992,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0807",
+            "folio": "INV-0807",
+            "client": "BioCosecha",
+            "concept": "Licencias Growth ×6 · agosto",
+            "issuedAt": "2026-08-01T09:30:00Z",
+            "dueAt": "2026-08-15T23:59:59Z",
+            "amount": 5994,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0808",
+            "folio": "INV-0808",
+            "client": "UrbanLoop",
+            "concept": "Licencias Scale ×10 · agosto",
+            "issuedAt": "2026-08-01T09:35:00Z",
+            "dueAt": "2026-08-20T23:59:59Z",
+            "amount": 24990,
+            "status": "paid",
+            "paymentMethod": "TDC"
+        },
+        {
+            "id": "inv-0809",
+            "folio": "INV-0809",
+            "client": "Clínica San Rafael",
+            "concept": "Licencias Growth ×30 · agosto",
+            "issuedAt": "2026-08-01T09:40:00Z",
+            "dueAt": "2026-08-20T23:59:59Z",
+            "amount": 29970,
+            "status": "paid",
+            "paymentMethod": "transferencia"
+        },
+        {
+            "id": "inv-0810",
+            "folio": "INV-0810",
+            "client": "Mercado Solar",
+            "concept": "Licencias Scale ×14 · agosto (incluye sobreuso)",
+            "issuedAt": "2026-08-01T09:45:00Z",
+            "dueAt": "2026-08-18T23:59:59Z",
+            "amount": 34986,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0811",
+            "folio": "INV-0811",
+            "client": "Koffee Labs",
+            "concept": "Licencias Growth ×12 · agosto",
+            "issuedAt": "2026-08-01T09:50:00Z",
+            "dueAt": "2026-08-15T23:59:59Z",
+            "amount": 11988,
+            "status": "paid",
+            "paymentMethod": "TDD"
+        },
+        {
+            "id": "inv-0812",
+            "folio": "INV-0812",
+            "client": "AeroParts",
+            "concept": "Licencias Starter ×5 · agosto",
+            "issuedAt": "2026-08-01T09:55:00Z",
+            "dueAt": "2026-08-18T23:59:59Z",
+            "amount": 2495,
+            "status": "pending",
+            "paymentMethod": null
+        },
+        {
+            "id": "inv-0813",
+            "folio": "INV-0813",
+            "client": "TerraForge",
+            "concept": "Licencias Scale ×8 · agosto",
+            "issuedAt": "2026-08-01T10:00:00Z",
+            "dueAt": "2026-08-18T23:59:59Z",
+            "amount": 19992,
+            "status": "pending",
+            "paymentMethod": null
+        },
+        {
+            "id": "inv-0814",
+            "folio": "INV-0814",
+            "client": "Mindful Apps",
+            "concept": "Licencias Starter ×3 · agosto",
+            "issuedAt": "2026-08-01T10:05:00Z",
+            "dueAt": "2026-08-18T23:59:59Z",
+            "amount": 1497,
+            "status": "pending",
+            "paymentMethod": null
+        },
+        {
+            "id": "inv-0815",
+            "folio": "INV-0815",
+            "client": "TecnoVía MX",
+            "concept": "Licencias Growth ×10 · agosto",
+            "issuedAt": "2026-08-01T10:10:00Z",
+            "dueAt": "2026-08-20T23:59:59Z",
+            "amount": 9990,
+            "status": "pending",
+            "paymentMethod": null
+        },
+        {
+            "id": "inv-0816",
+            "folio": "INV-0816",
+            "client": "Grupo Altamar",
+            "concept": "Licencias Scale ×12 · agosto",
+            "issuedAt": "2026-08-01T10:15:00Z",
+            "dueAt": "2026-08-20T23:59:59Z",
+            "amount": 29988,
+            "status": "pending",
+            "paymentMethod": null
+        },
+        {
+            "id": "inv-0817",
+            "folio": "INV-0817",
+            "client": "Finazza",
+            "concept": "Consultoría de integración",
+            "issuedAt": "2026-08-05T16:30:00Z",
+            "dueAt": "2026-08-25T23:59:59Z",
+            "amount": 29524,
+            "status": "pending",
+            "paymentMethod": null
+        },
+        {
+            "id": "inv-0818",
+            "folio": "INV-0818",
+            "client": "MedicLabs",
+            "concept": "Licencias Starter ×5 · agosto",
+            "issuedAt": "2026-08-01T10:20:00Z",
+            "dueAt": "2026-08-15T23:59:59Z",
+            "amount": 2495,
+            "status": "failed",
+            "paymentMethod": "TDC"
+        },
+        {
+            "id": "inv-0819",
+            "folio": "INV-0819",
+            "client": "CityRide",
+            "concept": "Licencias Scale ×40 · agosto (incluye sobreuso)",
+            "issuedAt": "2026-08-01T10:25:00Z",
+            "dueAt": "2026-08-20T23:59:59Z",
+            "amount": 99960,
+            "status": "paid",
+            "paymentMethod": "transferencia"
+        },
+        {
+            "id": "inv-0820",
+            "folio": "INV-0820",
+            "client": "DataWise",
+            "concept": "Licencias Growth ×25 · agosto",
+            "issuedAt": "2026-08-01T10:30:00Z",
+            "dueAt": "2026-08-18T23:59:59Z",
+            "amount": 24975,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        },
+        {
+            "id": "inv-0821",
+            "folio": "INV-0821",
+            "client": "AgroInsight",
+            "concept": "Licencias Growth ×6 · agosto",
+            "issuedAt": "2026-08-01T10:35:00Z",
+            "dueAt": "2026-08-15T23:59:59Z",
+            "amount": 5994,
+            "status": "paid",
+            "paymentMethod": "SPEI"
+        }
+    ],
+    "payments": [
+        {
+            "id": "pym-0819",
+            "invoiceId": "inv-0819",
+            "client": "CityRide",
+            "amount": 99960,
+            "status": "paid",
+            "method": "transferencia",
+            "paidAt": "2026-08-18T10:02:00Z"
+        },
+        {
+            "id": "pym-0818",
+            "invoiceId": "inv-0808",
+            "client": "UrbanLoop",
+            "amount": 24990,
+            "status": "paid",
+            "method": "TDC",
+            "paidAt": "2026-08-18T09:12:00Z"
+        },
+        {
+            "id": "pym-0817",
+            "invoiceId": "inv-0809",
+            "client": "Clínica San Rafael",
+            "amount": 29970,
+            "status": "paid",
+            "method": "transferencia",
+            "paidAt": "2026-08-17T18:40:00Z"
+        },
+        {
+            "id": "pym-0816",
+            "invoiceId": "inv-0810",
+            "client": "Mercado Solar",
+            "amount": 34986,
+            "status": "paid",
+            "method": "SPEI",
+            "paidAt": "2026-08-17T12:05:00Z"
+        },
+        {
+            "id": "pym-0815",
+            "invoiceId": "inv-0802",
+            "client": "Soluciones Kipu",
+            "amount": 14985,
+            "status": "paid",
+            "method": "SPEI",
+            "paidAt": "2026-08-16T16:22:00Z"
+        },
+        {
+            "id": "pym-0814",
+            "invoiceId": "inv-0818",
+            "client": "MedicLabs",
+            "amount": 2495,
+            "status": "failed",
+            "method": "TDC",
+            "paidAt": "2026-08-16T09:30:00Z"
+        },
+        {
+            "id": "pym-0813",
+            "invoiceId": "inv-0801",
+            "client": "FreshMark",
+            "amount": 14994,
+            "status": "paid",
+            "method": "SPEI",
+            "paidAt": "2026-08-15T11:48:00Z"
+        },
+        {
+            "id": "pym-0812",
+            "invoiceId": "inv-0807",
+            "client": "BioCosecha",
+            "amount": 5994,
+            "status": "paid",
+            "method": "SPEI",
+            "paidAt": "2026-08-14T14:10:00Z"
+        },
+        {
+            "id": "pym-0811",
+            "invoiceId": "inv-0820",
+            "client": "DataWise",
+            "amount": 24975,
+            "status": "paid",
+            "method": "SPEI",
+            "paidAt": "2026-08-13T10:55:00Z"
+        },
+        {
+            "id": "pym-0810",
+            "invoiceId": "inv-0805",
+            "client": "PackGo",
+            "amount": 24990,
+            "status": "failed",
+            "method": "TDC",
+            "paidAt": "2026-08-12T09:20:00Z"
+        }
+    ],
+    "balanceSheet": {
+        "asOf": "2026-08-31",
+        "assets": {
+            "cash": 1934500,
+            "accountsReceivable": 96480,
+            "equipment": 240000
+        },
+        "liabilities": {
+            "suppliers": 158300,
+            "taxesPayable": 145620
+        },
+        "equity": {
+            "capitalStock": 500000,
+            "retainedEarnings": 767918
+        }
     }
-  ],
-  "subscriptions": [
-    { "id": "sub-001", "client": "TecnoVía MX", "plan": "scale", "status": "active", "seats": 8, "monthlyAmount": 19992, "startedAt": "2025-09-12", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-002", "client": "Grupo Altamar", "plan": "scale", "status": "active", "seats": 6, "monthlyAmount": 14994, "startedAt": "2025-10-03", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-003", "client": "LogisTrack", "plan": "growth", "status": "active", "seats": 5, "monthlyAmount": 4995, "startedAt": "2025-10-21", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-004", "client": "Finazza", "plan": "scale", "status": "active", "seats": 10, "monthlyAmount": 24990, "startedAt": "2025-11-08", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-005", "client": "MedicLabs", "plan": "growth", "status": "active", "seats": 12, "monthlyAmount": 11988, "startedAt": "2025-11-19", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-006", "client": "AgroInsight", "plan": "growth", "status": "active", "seats": 6, "monthlyAmount": 5994, "startedAt": "2025-12-02", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-007", "client": "CityRide", "plan": "scale", "status": "active", "seats": 20, "monthlyAmount": 49980, "startedAt": "2025-12-15", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-008", "client": "DataWise", "plan": "growth", "status": "active", "seats": 8, "monthlyAmount": 7992, "startedAt": "2026-01-06", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-009", "client": "Café Origen", "plan": "starter", "status": "active", "seats": 6, "monthlyAmount": 2994, "startedAt": "2026-01-14", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-010", "client": "Inmobiliaria Vela", "plan": "growth", "status": "overdue", "seats": 10, "monthlyAmount": 9990, "startedAt": "2026-01-27", "nextBillingAt": "2026-08-01" },
-    { "id": "sub-011", "client": "FreshMark", "plan": "scale", "status": "active", "seats": 12, "monthlyAmount": 29988, "startedAt": "2026-02-09", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-012", "client": "Soluciones Kipu", "plan": "growth", "status": "active", "seats": 15, "monthlyAmount": 14985, "startedAt": "2026-02-20", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-013", "client": "EduSpark", "plan": "starter", "status": "active", "seats": 20, "monthlyAmount": 9980, "startedAt": "2026-03-04", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-014", "client": "VetCare+", "plan": "growth", "status": "active", "seats": 4, "monthlyAmount": 3996, "startedAt": "2026-03-17", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-015", "client": "PackGo", "plan": "scale", "status": "active", "seats": 10, "monthlyAmount": 24990, "startedAt": "2026-03-30", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-016", "client": "NorteStudio", "plan": "starter", "status": "active", "seats": 8, "monthlyAmount": 3992, "startedAt": "2026-04-08", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-017", "client": "BioCosecha", "plan": "growth", "status": "active", "seats": 6, "monthlyAmount": 5994, "startedAt": "2026-04-22", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-018", "client": "UrbanLoop", "plan": "scale", "status": "active", "seats": 10, "monthlyAmount": 24990, "startedAt": "2026-05-05", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-019", "client": "Clínica San Rafael", "plan": "growth", "status": "active", "seats": 30, "monthlyAmount": 29970, "startedAt": "2026-05-19", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-020", "client": "Mercado Solar", "plan": "scale", "status": "active", "seats": 14, "monthlyAmount": 34986, "startedAt": "2026-06-01", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-021", "client": "Koffee Labs", "plan": "growth", "status": "active", "seats": 11, "monthlyAmount": 10989, "startedAt": "2026-06-16", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-022", "client": "AeroParts", "plan": "starter", "status": "active", "seats": 5, "monthlyAmount": 2495, "startedAt": "2026-06-29", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-023", "client": "TerraForge", "plan": "scale", "status": "overdue", "seats": 8, "monthlyAmount": 19992, "startedAt": "2026-07-07", "nextBillingAt": "2026-08-01" },
-    { "id": "sub-024", "client": "Mindful Apps", "plan": "starter", "status": "overdue", "seats": 3, "monthlyAmount": 1497, "startedAt": "2026-07-14", "nextBillingAt": "2026-08-01" },
-    { "id": "sub-025", "client": "Casa de las Flores", "plan": "starter", "status": "trial", "seats": 3, "monthlyAmount": 1497, "startedAt": "2026-08-04", "nextBillingAt": "2026-08-25" },
-    { "id": "sub-026", "client": "RoboConstruct", "plan": "starter", "status": "trial", "seats": 2, "monthlyAmount": 998, "startedAt": "2026-08-11", "nextBillingAt": "2026-09-01" },
-    { "id": "sub-027", "client": "Almacén Norte", "plan": "growth", "status": "canceled", "seats": 4, "monthlyAmount": 3996, "startedAt": "2026-02-01", "nextBillingAt": "2026-06-30" },
-    { "id": "sub-028", "client": "Studio Piksel", "plan": "starter", "status": "canceled", "seats": 6, "monthlyAmount": 2994, "startedAt": "2026-03-01", "nextBillingAt": "2026-07-15" }
-  ],
-  "invoices": [
-    { "id": "inv-0781", "folio": "INV-0781", "client": "TecnoVía MX", "concept": "Licencias Growth ×8 · julio", "issuedAt": "2026-07-01T09:00:00Z", "dueAt": "2026-07-15T23:59:59Z", "amount": 7992, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0782", "folio": "INV-0782", "client": "Grupo Altamar", "concept": "Setup + licencias Scale · julio", "issuedAt": "2026-07-01T09:05:00Z", "dueAt": "2026-07-20T23:59:59Z", "amount": 24990, "status": "paid", "paymentMethod": "TDC" },
-    { "id": "inv-0783", "folio": "INV-0783", "client": "LogisTrack", "concept": "Licencias Growth ×5 · julio", "issuedAt": "2026-07-01T09:10:00Z", "dueAt": "2026-07-15T23:59:59Z", "amount": 4995, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0784", "folio": "INV-0784", "client": "Finazza", "concept": "Licencias Scale ×2 · julio", "issuedAt": "2026-07-01T09:15:00Z", "dueAt": "2026-07-18T23:59:59Z", "amount": 4998, "status": "paid", "paymentMethod": "TDD" },
-    { "id": "inv-0785", "folio": "INV-0785", "client": "MedicLabs", "concept": "Licencias Starter ×12 · julio", "issuedAt": "2026-07-01T09:20:00Z", "dueAt": "2026-07-15T23:59:59Z", "amount": 5988, "status": "failed", "paymentMethod": "TDC" },
-    { "id": "inv-0786", "folio": "INV-0786", "client": "AgroInsight", "concept": "Licencias Growth ×3 · julio", "issuedAt": "2026-07-01T09:25:00Z", "dueAt": "2026-07-15T23:59:59Z", "amount": 2997, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0787", "folio": "INV-0787", "client": "CityRide", "concept": "Licencias Scale ×4 · julio", "issuedAt": "2026-07-01T09:30:00Z", "dueAt": "2026-07-18T23:59:59Z", "amount": 9996, "status": "paid", "paymentMethod": "transferencia" },
-    { "id": "inv-0788", "folio": "INV-0788", "client": "DataWise", "concept": "Licencias Starter ×6 · julio", "issuedAt": "2026-07-01T09:35:00Z", "dueAt": "2026-07-20T23:59:59Z", "amount": 2994, "status": "pending", "paymentMethod": null },
-    { "id": "inv-0789", "folio": "INV-0789", "client": "Café Origen", "concept": "Licencias Starter ×4 · julio", "issuedAt": "2026-07-01T09:40:00Z", "dueAt": "2026-07-15T23:59:59Z", "amount": 1996, "status": "paid", "paymentMethod": "TDD" },
-    { "id": "inv-0790", "folio": "INV-0790", "client": "Inmobiliaria Vela", "concept": "Licencias Growth ×10 · julio", "issuedAt": "2026-07-01T09:45:00Z", "dueAt": "2026-07-15T23:59:59Z", "amount": 9990, "status": "failed", "paymentMethod": "SPEI" },
-    { "id": "inv-0771", "folio": "INV-0771", "client": "FreshMark", "concept": "Licencias Starter ×8 · junio", "issuedAt": "2026-06-01T09:00:00Z", "dueAt": "2026-06-15T23:59:59Z", "amount": 3992, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0772", "folio": "INV-0772", "client": "PackGo", "concept": "Licencias Growth ×6 · junio", "issuedAt": "2026-06-01T09:05:00Z", "dueAt": "2026-06-18T23:59:59Z", "amount": 5994, "status": "paid", "paymentMethod": "TDC" },
-    { "id": "inv-0773", "folio": "INV-0773", "client": "Clínica San Rafael", "concept": "Licencias Growth ×20 · junio", "issuedAt": "2026-06-01T09:10:00Z", "dueAt": "2026-06-20T23:59:59Z", "amount": 19980, "status": "paid", "paymentMethod": "transferencia" },
-    { "id": "inv-0774", "folio": "INV-0774", "client": "AeroParts", "concept": "Licencias Starter ×3 · junio", "issuedAt": "2026-06-01T09:15:00Z", "dueAt": "2026-06-15T23:59:59Z", "amount": 1497, "status": "failed", "paymentMethod": "TDD" },
-    { "id": "inv-0801", "folio": "INV-0801", "client": "FreshMark", "concept": "Licencias Scale ×6 · agosto", "issuedAt": "2026-08-01T09:00:00Z", "dueAt": "2026-08-15T23:59:59Z", "amount": 14994, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0802", "folio": "INV-0802", "client": "Soluciones Kipu", "concept": "Licencias Growth ×15 · agosto", "issuedAt": "2026-08-01T09:05:00Z", "dueAt": "2026-08-15T23:59:59Z", "amount": 14985, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0803", "folio": "INV-0803", "client": "EduSpark", "concept": "Licencias Starter ×20 · agosto", "issuedAt": "2026-08-01T09:10:00Z", "dueAt": "2026-08-18T23:59:59Z", "amount": 9980, "status": "paid", "paymentMethod": "TDC" },
-    { "id": "inv-0804", "folio": "INV-0804", "client": "VetCare+", "concept": "Licencias Growth ×4 · agosto", "issuedAt": "2026-08-01T09:15:00Z", "dueAt": "2026-08-15T23:59:59Z", "amount": 3996, "status": "paid", "paymentMethod": "TDD" },
-    { "id": "inv-0805", "folio": "INV-0805", "client": "PackGo", "concept": "Licencias Scale ×10 · agosto (incluye sobreuso)", "issuedAt": "2026-08-01T09:20:00Z", "dueAt": "2026-08-18T23:59:59Z", "amount": 24990, "status": "paid", "paymentMethod": "transferencia" },
-    { "id": "inv-0806", "folio": "INV-0806", "client": "NorteStudio", "concept": "Licencias Starter ×8 · agosto", "issuedAt": "2026-08-01T09:25:00Z", "dueAt": "2026-08-15T23:59:59Z", "amount": 3992, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0807", "folio": "INV-0807", "client": "BioCosecha", "concept": "Licencias Growth ×6 · agosto", "issuedAt": "2026-08-01T09:30:00Z", "dueAt": "2026-08-15T23:59:59Z", "amount": 5994, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0808", "folio": "INV-0808", "client": "UrbanLoop", "concept": "Licencias Scale ×10 · agosto", "issuedAt": "2026-08-01T09:35:00Z", "dueAt": "2026-08-20T23:59:59Z", "amount": 24990, "status": "paid", "paymentMethod": "TDC" },
-    { "id": "inv-0809", "folio": "INV-0809", "client": "Clínica San Rafael", "concept": "Licencias Growth ×30 · agosto", "issuedAt": "2026-08-01T09:40:00Z", "dueAt": "2026-08-20T23:59:59Z", "amount": 29970, "status": "paid", "paymentMethod": "transferencia" },
-    { "id": "inv-0810", "folio": "INV-0810", "client": "Mercado Solar", "concept": "Licencias Scale ×14 · agosto (incluye sobreuso)", "issuedAt": "2026-08-01T09:45:00Z", "dueAt": "2026-08-18T23:59:59Z", "amount": 34986, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0811", "folio": "INV-0811", "client": "Koffee Labs", "concept": "Licencias Growth ×12 · agosto", "issuedAt": "2026-08-01T09:50:00Z", "dueAt": "2026-08-15T23:59:59Z", "amount": 11988, "status": "paid", "paymentMethod": "TDD" },
-    { "id": "inv-0812", "folio": "INV-0812", "client": "AeroParts", "concept": "Licencias Starter ×5 · agosto", "issuedAt": "2026-08-01T09:55:00Z", "dueAt": "2026-08-18T23:59:59Z", "amount": 2495, "status": "pending", "paymentMethod": null },
-    { "id": "inv-0813", "folio": "INV-0813", "client": "TerraForge", "concept": "Licencias Scale ×8 · agosto", "issuedAt": "2026-08-01T10:00:00Z", "dueAt": "2026-08-18T23:59:59Z", "amount": 19992, "status": "pending", "paymentMethod": null },
-    { "id": "inv-0814", "folio": "INV-0814", "client": "Mindful Apps", "concept": "Licencias Starter ×3 · agosto", "issuedAt": "2026-08-01T10:05:00Z", "dueAt": "2026-08-18T23:59:59Z", "amount": 1497, "status": "pending", "paymentMethod": null },
-    { "id": "inv-0815", "folio": "INV-0815", "client": "TecnoVía MX", "concept": "Licencias Growth ×10 · agosto", "issuedAt": "2026-08-01T10:10:00Z", "dueAt": "2026-08-20T23:59:59Z", "amount": 9990, "status": "pending", "paymentMethod": null },
-    { "id": "inv-0816", "folio": "INV-0816", "client": "Grupo Altamar", "concept": "Licencias Scale ×12 · agosto", "issuedAt": "2026-08-01T10:15:00Z", "dueAt": "2026-08-20T23:59:59Z", "amount": 29988, "status": "pending", "paymentMethod": null },
-    { "id": "inv-0817", "folio": "INV-0817", "client": "Finazza", "concept": "Consultoría de integración", "issuedAt": "2026-08-05T16:30:00Z", "dueAt": "2026-08-25T23:59:59Z", "amount": 29524, "status": "pending", "paymentMethod": null },
-    { "id": "inv-0818", "folio": "INV-0818", "client": "MedicLabs", "concept": "Licencias Starter ×5 · agosto", "issuedAt": "2026-08-01T10:20:00Z", "dueAt": "2026-08-15T23:59:59Z", "amount": 2495, "status": "failed", "paymentMethod": "TDC" },
-    { "id": "inv-0819", "folio": "INV-0819", "client": "CityRide", "concept": "Licencias Scale ×40 · agosto (incluye sobreuso)", "issuedAt": "2026-08-01T10:25:00Z", "dueAt": "2026-08-20T23:59:59Z", "amount": 99960, "status": "paid", "paymentMethod": "transferencia" },
-    { "id": "inv-0820", "folio": "INV-0820", "client": "DataWise", "concept": "Licencias Growth ×25 · agosto", "issuedAt": "2026-08-01T10:30:00Z", "dueAt": "2026-08-18T23:59:59Z", "amount": 24975, "status": "paid", "paymentMethod": "SPEI" },
-    { "id": "inv-0821", "folio": "INV-0821", "client": "AgroInsight", "concept": "Licencias Growth ×6 · agosto", "issuedAt": "2026-08-01T10:35:00Z", "dueAt": "2026-08-15T23:59:59Z", "amount": 5994, "status": "paid", "paymentMethod": "SPEI" }
-  ],
-  "payments": [
-    { "id": "pym-0819", "invoiceId": "inv-0819", "client": "CityRide", "amount": 99960, "status": "paid", "method": "transferencia", "paidAt": "2026-08-18T10:02:00Z" },
-    { "id": "pym-0818", "invoiceId": "inv-0808", "client": "UrbanLoop", "amount": 24990, "status": "paid", "method": "TDC", "paidAt": "2026-08-18T09:12:00Z" },
-    { "id": "pym-0817", "invoiceId": "inv-0809", "client": "Clínica San Rafael", "amount": 29970, "status": "paid", "method": "transferencia", "paidAt": "2026-08-17T18:40:00Z" },
-    { "id": "pym-0816", "invoiceId": "inv-0810", "client": "Mercado Solar", "amount": 34986, "status": "paid", "method": "SPEI", "paidAt": "2026-08-17T12:05:00Z" },
-    { "id": "pym-0815", "invoiceId": "inv-0802", "client": "Soluciones Kipu", "amount": 14985, "status": "paid", "method": "SPEI", "paidAt": "2026-08-16T16:22:00Z" },
-    { "id": "pym-0814", "invoiceId": "inv-0818", "client": "MedicLabs", "amount": 2495, "status": "failed", "method": "TDC", "paidAt": "2026-08-16T09:30:00Z" },
-    { "id": "pym-0813", "invoiceId": "inv-0801", "client": "FreshMark", "amount": 14994, "status": "paid", "method": "SPEI", "paidAt": "2026-08-15T11:48:00Z" },
-    { "id": "pym-0812", "invoiceId": "inv-0807", "client": "BioCosecha", "amount": 5994, "status": "paid", "method": "SPEI", "paidAt": "2026-08-14T14:10:00Z" },
-    { "id": "pym-0811", "invoiceId": "inv-0820", "client": "DataWise", "amount": 24975, "status": "paid", "method": "SPEI", "paidAt": "2026-08-13T10:55:00Z" },
-    { "id": "pym-0810", "invoiceId": "inv-0805", "client": "PackGo", "amount": 24990, "status": "failed", "method": "TDC", "paidAt": "2026-08-12T09:20:00Z" }
-  ],
-  "balanceSheet": {
-    "asOf": "2026-08-31",
-    "assets": {
-      "cash": 1934500,
-      "accountsReceivable": 96480,
-      "equipment": 240000
-    },
-    "liabilities": {
-      "suppliers": 158300,
-      "taxesPayable": 145620
-    },
-    "equity": {
-      "capitalStock": 500000,
-      "retainedEarnings": 767918
-    }
-  }
 }

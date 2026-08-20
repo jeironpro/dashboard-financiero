@@ -12,121 +12,121 @@ import { formatMoney, formatPercent } from '@/lib/format'
 import type { FinanceData } from '@/types/finance'
 
 export function PaymentsPage({ data }: { data: FinanceData }) {
-  const rootRef = useReveal<HTMLDivElement>()
-  const buttonRef = useRef<HTMLButtonElement>(null)
-  const [strokes, setStrokes] = useState(0)
-  const [groups, setGroups] = useState(0)
-  const [message, setMessage] = useState('Sin cobros simulados todavía.')
-  const [celebrating, setCelebrating] = useState(false)
+    const rootRef = useReveal<HTMLDivElement>()
+    const buttonRef = useRef<HTMLButtonElement>(null)
+    const [strokes, setStrokes] = useState(0)
+    const [groups, setGroups] = useState(0)
+    const [message, setMessage] = useState('Sin cobros simulados todavía.')
+    const [celebrating, setCelebrating] = useState(false)
 
-  const { paymentSummary, summary } = data
+    const { paymentSummary, summary } = data
 
-  const handleCollect = (event: MouseEvent<HTMLButtonElement>) => {
-    const button = event.currentTarget
-    burstAt(button, button.offsetWidth / 2, button.offsetHeight / 2)
+    const handleCollect = (event: MouseEvent<HTMLButtonElement>) => {
+        const button = event.currentTarget
+        burstAt(button, button.offsetWidth / 2, button.offsetHeight / 2)
 
-    if (strokes < 4) {
-      const next = strokes + 1
-      setStrokes(next)
-      setMessage(`Cobro simulado registrado — trazo ${next} de 5.`)
-      return
+        if (strokes < 4) {
+            const next = strokes + 1
+            setStrokes(next)
+            setMessage(`Cobro simulado registrado — trazo ${next} de 5.`)
+            return
+        }
+
+        // Completa el grupo: diagonal + celebración.
+        setStrokes(5)
+        const totalGroups = groups + 1
+        setGroups(totalGroups)
+        setCelebrating(true)
+        setMessage(`¡Grupo completado! ${totalGroups * 5} cobros simulados en total.`)
+        window.setTimeout(() => {
+            setStrokes(0)
+            setCelebrating(false)
+        }, 1000)
     }
 
-    // Completa el grupo: diagonal + celebración.
-    setStrokes(5)
-    const totalGroups = groups + 1
-    setGroups(totalGroups)
-    setCelebrating(true)
-    setMessage(`¡Grupo completado! ${totalGroups * 5} cobros simulados en total.`)
-    window.setTimeout(() => {
-      setStrokes(0)
-      setCelebrating(false)
-    }, 1000)
-  }
+    const stats = [
+        {
+            label: 'Pendientes',
+            value: formatMoney(paymentSummary.pending.amount),
+            detail: `${paymentSummary.pending.count} facturas`,
+            tone: 'text-warning',
+        },
+        {
+            label: 'Exitosos',
+            value: formatMoney(paymentSummary.paid.amount),
+            detail: `${paymentSummary.paid.count} pagos`,
+            tone: 'text-success',
+        },
+        {
+            label: 'Fallidos',
+            value: formatMoney(paymentSummary.failed.amount),
+            detail: `${paymentSummary.failed.count} intentos`,
+            tone: 'text-danger',
+        },
+        {
+            label: 'Tasa de cobro',
+            value: formatPercent(summary.collectionRate),
+            detail: 'cobradas / intentos del mes',
+            tone: 'text-ink',
+        },
+    ]
 
-  const stats = [
-    {
-      label: 'Pendientes',
-      value: formatMoney(paymentSummary.pending.amount),
-      detail: `${paymentSummary.pending.count} facturas`,
-      tone: 'text-warning',
-    },
-    {
-      label: 'Exitosos',
-      value: formatMoney(paymentSummary.paid.amount),
-      detail: `${paymentSummary.paid.count} pagos`,
-      tone: 'text-success',
-    },
-    {
-      label: 'Fallidos',
-      value: formatMoney(paymentSummary.failed.amount),
-      detail: `${paymentSummary.failed.count} intentos`,
-      tone: 'text-danger',
-    },
-    {
-      label: 'Tasa de cobro',
-      value: formatPercent(summary.collectionRate),
-      detail: 'cobradas / intentos del mes',
-      tone: 'text-ink',
-    },
-  ]
+    return (
+        <div ref={rootRef}>
+            <SectionHeading
+                eyebrow="04 · PAGOS"
+                title="Qué se cobró y qué falta"
+                lead={`${paymentSummary.pending.count} facturas por ${formatMoney(paymentSummary.pending.amount)} esperan cobro este mes.`}
+            />
 
-  return (
-    <div ref={rootRef}>
-      <SectionHeading
-        eyebrow="04 · PAGOS"
-        title="Qué se cobró y qué falta"
-        lead={`${paymentSummary.pending.count} facturas por ${formatMoney(paymentSummary.pending.amount)} esperan cobro este mes.`}
-      />
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+                {stats.map((stat) => (
+                    <StatCard
+                        key={stat.label}
+                        label={stat.label}
+                        value={stat.value}
+                        detail={stat.detail}
+                        tone={stat.tone}
+                    />
+                ))}
+            </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-        {stats.map((stat) => (
-          <StatCard
-            key={stat.label}
-            label={stat.label}
-            value={stat.value}
-            detail={stat.detail}
-            tone={stat.tone}
-          />
-        ))}
-      </div>
+            <div
+                data-reveal
+                className="mt-4 flex flex-col gap-5 rounded-[var(--radius-xl)] border border-pear-deep/30 bg-pear-soft/60 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6"
+            >
+                <div className="flex items-center gap-4">
+                    <TallyCounter strokes={strokes} />
+                    <div>
+                        <p className="font-display text-base font-semibold tracking-tight text-ink">
+                            Cobrar facturas pendientes
+                        </p>
+                        <p className="mt-0.5 text-sm text-muted-foreground">
+                            Simula el cobro de {paymentSummary.pending.count} facturas por{' '}
+                            {formatMoney(paymentSummary.pending.amount)}. Cada clic dibuja un trazo.
+                        </p>
+                        <p className="mt-1 text-xs font-medium text-pear-deep" aria-live="polite">
+                            {message} {groups > 0 && `· ${groups * 5} cobros simulados`}
+                        </p>
+                    </div>
+                </div>
+                <div className="flex shrink-0 items-center gap-3">
+                    <span className="num text-sm font-semibold text-ink">{strokes}/5</span>
+                    <Button
+                        ref={buttonRef}
+                        size="lg"
+                        onClick={handleCollect}
+                        className={celebrating ? 'bg-pear-deep' : ''}
+                    >
+                        <HandCoins className="size-4" aria-hidden="true" />
+                        Cobrar pendiente
+                    </Button>
+                </div>
+            </div>
 
-      <div
-        data-reveal
-        className="mt-4 flex flex-col gap-5 rounded-[var(--radius-xl)] border border-pear-deep/30 bg-pear-soft/60 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6"
-      >
-        <div className="flex items-center gap-4">
-          <TallyCounter strokes={strokes} />
-          <div>
-            <p className="font-display text-base font-semibold tracking-tight text-ink">
-              Cobrar facturas pendientes
-            </p>
-            <p className="mt-0.5 text-sm text-muted-foreground">
-              Simula el cobro de {paymentSummary.pending.count} facturas por{' '}
-              {formatMoney(paymentSummary.pending.amount)}. Cada clic dibuja un trazo.
-            </p>
-            <p className="mt-1 text-xs font-medium text-pear-deep" aria-live="polite">
-              {message} {groups > 0 && `· ${groups * 5} cobros simulados`}
-            </p>
-          </div>
+            <div className="mt-5">
+                <PaymentsTable payments={data.payments} />
+            </div>
         </div>
-        <div className="flex shrink-0 items-center gap-3">
-          <span className="num text-sm font-semibold text-ink">{strokes}/5</span>
-          <Button
-            ref={buttonRef}
-            size="lg"
-            onClick={handleCollect}
-            className={celebrating ? 'bg-pear-deep' : ''}
-          >
-            <HandCoins className="size-4" aria-hidden="true" />
-            Cobrar pendiente
-          </Button>
-        </div>
-      </div>
-
-      <div className="mt-5">
-        <PaymentsTable payments={data.payments} />
-      </div>
-    </div>
-  )
+    )
 }
